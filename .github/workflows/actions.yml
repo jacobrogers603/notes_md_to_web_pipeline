@@ -41,7 +41,7 @@ jobs:
     - name: Convert MD to HTML
       run: |
         Get-ChildItem -Recurse -Filter *.md | ForEach-Object {
-          pandoc "$_" -o "$($_.FullName -replace '\.md$', '.html')"
+          pandoc $_.FullName -o "$($_.FullName -replace '\.md$', '.html')"
         }
 
     - name: Commit and push
