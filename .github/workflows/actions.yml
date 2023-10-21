@@ -31,21 +31,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Install Pandoc
+    - name: Install Pandoc with Chocolatey
       run: |
-        $url = "https://github.com/jgm/pandoc/releases/download/2.11.4/pandoc-2.11.4-windows-x86_64.msi"
-        $output = "pandoc-installer.msi"
-        Invoke-WebRequest -Uri $url -OutFile $output
-        msiexec /i $output /quiet
-
-    - name: Verify Pandoc Installation
-      run: |
-        $pandocPath = Get-Command pandoc -ErrorAction SilentlyContinue
-        if ($null -ne $pandocPath) {
-          Write-Output "Pandoc found at $($pandocPath.Source)"
-        } else {
-          Write-Output "Pandoc not found"
-        }
+        Set-ExecutionPolicy Bypass -Scope Process -Force
+        [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
+        iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+        choco install pandoc -y
 
     - name: Convert MD to HTML
       run: |
@@ -55,8 +46,8 @@ jobs:
 
     - name: Commit and push
       run: |
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
+        git config user.name "Jacob Rogers"
+        git config user.email "rogersair2@aol.com"
         git add -A
         git commit -m "Convert MD to HTML" || echo "No changes to commit"
         git push
