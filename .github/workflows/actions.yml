@@ -8,8 +8,16 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: powershell
 
     steps:
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
     - name: Checkout repository
       uses: actions/checkout@v2
 
@@ -23,17 +31,21 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Add Pandoc to PATH
+      run: |
+        $pandocPath = (python -c "import pandoc; print(pandoc.get_pandoc_path())")
+        echo "::add-path::$pandocPath"
+
     - name: Convert MD to HTML
       run: |
         Get-ChildItem -Recurse -Filter *.md | ForEach-Object {
           pandoc "$_" -o "$($_.FullName -replace '\.md$', '.html')"
         }
-      shell: powershell
 
     - name: Commit and push
       run: |
-        git config user.name "Jacob Rogers"
-        git config user.email "rogersair2@aol.com"
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
         git add -A
         git commit -m "Convert MD to HTML" || echo "No changes to commit"
         git push
