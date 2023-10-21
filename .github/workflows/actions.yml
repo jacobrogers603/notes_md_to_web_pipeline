@@ -44,7 +44,7 @@ jobs:
           pandoc $_.FullName -o "$($_.FullName -replace '\.md$', '.html')"
         }
 
-      - name: Commit and push
+    - name: Commit and push
       run: |
         git config user.name "Jacob Rogers"
         git config user.email "rogersair2@aol.com"
