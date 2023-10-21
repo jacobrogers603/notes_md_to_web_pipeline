@@ -31,10 +31,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Add Pandoc to PATH
+    - name: Install Pandoc
       run: |
-        $pandocPath = (python -c "import pandoc; print(pandoc.__path__[0])")
-        echo "$pandocPath" | Out-File -Append $Env:GITHUB_PATH -Encoding utf8
+        $url = "https://github.com/jgm/pandoc/releases/download/2.11.4/pandoc-2.11.4-windows-x86_64.msi"
+        $output = "pandoc-installer.msi"
+        Invoke-WebRequest -Uri $url -OutFile $output
+        msiexec /i $output /quiet
 
     - name: Convert MD to HTML
       run: |
