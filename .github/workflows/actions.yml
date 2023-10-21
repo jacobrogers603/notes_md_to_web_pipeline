@@ -49,5 +49,8 @@ jobs:
         git config user.name "Jacob Rogers"
         git config user.email "rogersair2@aol.com"
         git add -A
-        git commit -m "Convert MD to HTML" || echo "No changes to commit"
+        git commit -m "Convert MD to HTML"
+        if ($LastExitCode -ne 0) {
+          Write-Output "No changes to commit"
+        }
         git push
