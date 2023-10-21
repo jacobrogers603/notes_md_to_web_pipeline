@@ -33,8 +33,8 @@ jobs:
 
     - name: Add Pandoc to PATH
       run: |
-        $pandocPath = (python -c "import pandoc; print(pandoc.get_pandoc_path())")
-        echo "::add-path::$pandocPath"
+        $pandocPath = (python -c "import pandoc; print(pandoc.__path__[0])")
+        echo "$pandocPath" | Out-File -Append $Env:GITHUB_PATH -Encoding utf8
 
     - name: Convert MD to HTML
       run: |
