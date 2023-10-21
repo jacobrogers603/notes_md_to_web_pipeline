@@ -44,7 +44,13 @@ jobs:
           pandoc $_.FullName -o "$($_.FullName -replace '\.md$', '.html')"
         }
 
+    - name: Debug token
+      run: |
+        echo "${{ secrets.GH_PAT }}" | cut -c1-4
+
     - name: Commit and push
+      env:
+        GH_PAT: ${{ secrets.GH_PAT }}
       run: |
         git config user.name "Jacob Rogers"
         git config user.email "rogersair2@aol.com"
@@ -53,6 +59,8 @@ jobs:
         if ($LastExitCode -ne 0) {
           Write-Output "No changes to commit"
         } else {
-          git push "https://${{ secrets.GH_PAT }}@github.com/jacobrogers603/notes_md_to_web_pipeline.git"
+          git remote set-url origin https://x-access-token:$env:GH_PAT@github.com/jacobrogers603/notes_md_to_web_pipeline.git
+          git push
         }
+
 
