@@ -44,7 +44,7 @@ jobs:
           pandoc $_.FullName -o "$($_.FullName -replace '\.md$', '.html')"
         }
 
-    - name: Commit and push
+      - name: Commit and push
       run: |
         git config user.name "Jacob Rogers"
         git config user.email "rogersair2@aol.com"
@@ -52,5 +52,7 @@ jobs:
         git commit -m "Convert MD to HTML"
         if ($LastExitCode -ne 0) {
           Write-Output "No changes to commit"
+        } else {
+          git push "https://${{ secrets.GH_PAT }}@github.com/jacobrogers603/notes_md_to_web_pipeline.git"
         }
-        git push
+
