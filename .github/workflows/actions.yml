@@ -38,6 +38,15 @@ jobs:
         Invoke-WebRequest -Uri $url -OutFile $output
         msiexec /i $output /quiet
 
+    - name: Verify Pandoc Installation
+      run: |
+        $pandocPath = Get-Command pandoc -ErrorAction SilentlyContinue
+        if ($null -ne $pandocPath) {
+          Write-Output "Pandoc found at $($pandocPath.Source)"
+        } else {
+          Write-Output "Pandoc not found"
+        }
+
     - name: Convert MD to HTML
       run: |
         Get-ChildItem -Recurse -Filter *.md | ForEach-Object {
