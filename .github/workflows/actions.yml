@@ -41,8 +41,10 @@ jobs:
     - name: Convert MD to HTML
       run: |
         Get-ChildItem -Recurse -Filter *.md | ForEach-Object {
-          pandoc $_.FullName -o "$($_.FullName -replace '\.md$', '.html')"
+          pandoc $_.FullName --standalone --css=style.css -o "$($_.FullName -replace '\.md$', '.html')"
         }
+
+
 
     - name: Debug token
       run: |
