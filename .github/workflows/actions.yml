@@ -13,15 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2
-        with:
-          node-version: "16"
-
-      - name: Install Prettier
-        run: |
-          npm install -g prettier
-
       - name: Convert MD to HTML
         run: |
           docker run --rm -v "${{ github.workspace }}:/data" jrog603/pandoc_installed:latest sh -c "\
