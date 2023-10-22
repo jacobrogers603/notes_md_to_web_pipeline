@@ -18,6 +18,10 @@ jobs:
       with:
         node-version: '16'
 
+    - name: Install Prettier
+      run: |
+        npm install -g prettier
+
     - name: Checkout repository
       uses: actions/checkout@v2
 
@@ -41,12 +45,14 @@ jobs:
     - name: Convert MD to HTML
       run: |
         Get-ChildItem -Recurse -Filter *.md | ForEach-Object {
-          pandoc $_.FullName --template template.html --css=style.css -o "$($_.FullName -replace '\.md$', '.html')"
+          pandoc $_.FullName --template template.html --toc --css=style.css -o "$($_.FullName -replace '\.md$', '.html')"
         }
 
-    - name: Debug token
+    - name: Format HTML files
       run: |
-        echo "${{ secrets.GH_PAT }}" | cut -c1-4
+        Get-ChildItem -Recurse -Filter *.html | ForEach-Object {
+          prettier --write $_.FullName
+        }
 
     - name: Commit and push
       env:
