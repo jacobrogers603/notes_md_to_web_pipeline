@@ -24,7 +24,15 @@ jobs:
 
       - name: Convert MD to HTML
         run: |
-          docker run --rm -v "${{ github.workspace }}:/data" jrog603/pandoc_installed:latest sh -c "cd /notes && find . -name '*.md' | while IFS= read -r file; do pandoc "$file" --template template.html --toc --css=style.css -o "${file%.md}.html"; done"
+          docker run --rm -v "${{ github.workspace }}:/data" jrog603/pandoc_installed:latest sh -c "\
+            cd /data && \
+            pwd && \
+            ls -l && \
+            find . -name '*.md' && \
+            find . -name '*.md' | while IFS= read -r file; do \
+              echo "Processing $file"; \
+              pandoc \"$file\" --template template.html --toc --css=style.css -o \"${file%.md}.html\"; \
+            done"
 
       # - name: Format HTML files
       #   run: |
