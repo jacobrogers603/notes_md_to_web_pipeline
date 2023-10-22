@@ -8,11 +8,11 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    defaults:
-      run:
-        shell: powershell
 
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
     - name: Setup Node.js environment
       uses: actions/setup-node@v2
       with:
@@ -22,31 +22,9 @@ jobs:
       run: |
         npm install -g prettier
 
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
-
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-
-    - name: Install Pandoc with Chocolatey
-      run: |
-        Set-ExecutionPolicy Bypass -Scope Process -Force
-        [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
-        iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-        choco install pandoc -y
-
     - name: Convert MD to HTML
       run: |
-        Get-ChildItem -Recurse -Filter *.md | ForEach-Object {
-          pandoc $_.FullName --template template.html --toc --css=style.css -o "$($_.FullName -replace '\.md$', '.html')"
-        }
+        docker run --rm -v "${{ github.workspace }}:/data" jrog603/pandoc_installed:latest sh -c "cd /data && for file in $(find . -name '*.md'); do pandoc \"$file\" --template template.html --toc --css=style.css -o \"${file%.md}.html\"; done"
 
     - name: Format HTML files
       run: |
@@ -68,5 +46,3 @@ jobs:
           git remote set-url origin https://x-access-token:$env:GH_PAT@github.com/jacobrogers603/notes_md_to_web_pipeline.git
           git push
         }
-
-
