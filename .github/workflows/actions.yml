@@ -37,10 +37,7 @@ jobs:
           git config user.name "Jacob Rogers"
           git config user.email "rogersair2@aol.com"
           git add -A
+          git diff --quiet && git diff --staged --quiet || echo "No changes to commit" || exit 0
           git commit -m "Convert MD to HTML"
-          if [ $? -ne 0 ]; then
-            echo "No changes to commit"
-          else
-            git remote set-url origin https://x-access-token:$GH_PAT@github.com/jacobrogers603/notes_md_to_web_pipeline.git
-            git push
-          fi
+          git remote set-url origin https://x-access-token:$GH_PAT@github.com/jacobrogers603/notes_md_to_web_pipeline.git
+          git push
