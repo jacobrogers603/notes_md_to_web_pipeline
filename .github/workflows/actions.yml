@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
@@ -28,9 +28,7 @@ jobs:
 
     - name: Format HTML files
       run: |
-        Get-ChildItem -Recurse -Filter *.html | ForEach-Object {
-          prettier --write $_.FullName
-        }
+        find . -name "*.html" -exec prettier --write {} +
 
     - name: Commit and push
       env:
@@ -40,9 +38,9 @@ jobs:
         git config user.email "rogersair2@aol.com"
         git add -A
         git commit -m "Convert MD to HTML"
-        if ($LastExitCode -ne 0) {
-          Write-Output "No changes to commit"
-        } else {
-          git remote set-url origin https://x-access-token:$env:GH_PAT@github.com/jacobrogers603/notes_md_to_web_pipeline.git
+        if [ $? -ne 0 ]; then
+          echo "No changes to commit"
+        else
+          git remote set-url origin https://x-access-token:$GH_PAT@github.com/jacobrogers603/notes_md_to_web_pipeline.git
           git push
-        }
+        fi
