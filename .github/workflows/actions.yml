@@ -35,9 +35,9 @@ jobs:
             done"
 
 
-      # - name: Format HTML files
-      #   run: |
-      #     find . -name "*.html" -exec prettier --write {} +
+      - name: Format HTML files
+        run: |
+          find . -name "*.html" -exec prettier --write {} +
 
       - name: Commit and push
         env:
