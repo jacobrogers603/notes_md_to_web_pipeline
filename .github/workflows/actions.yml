@@ -28,9 +28,7 @@ jobs:
 
       - name: Format HTML files
         run: |
-          for file in $(find . -name "*.html"); do
-            prettier --write "$file"
-          done
+          docker run --rm -v "${{ github.workspace }}:/data" jrog603/pandoc_installed:latest sh -c "cd /data && format-html"
 
       - name: Commit and push
         env:
