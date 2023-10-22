@@ -26,9 +26,9 @@ jobs:
         run: |
           docker run --rm -v "${{ github.workspace }}:/data" jrog603/pandoc_installed:latest sh -c "cd /data && find . -name '*.md' | while IFS= read -r file; do pandoc "$file" --template template.html --toc --css=style.css -o "${file%.md}.html"; done"
 
-      - name: Format HTML files
-        run: |
-          find . -name "*.html" -exec prettier --write {} +
+      # - name: Format HTML files
+      #   run: |
+      #     find . -name "*.html" -exec prettier --write {} +
 
       - name: Commit and push
         env:
