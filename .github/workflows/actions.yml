@@ -10,37 +10,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
 
-    - name: Install Prettier
-      run: |
-        npm install -g prettier
+      - name: Install Prettier
+        run: |
+          npm install -g prettier
 
-    - name: Convert MD to HTML
-      run: |
-        docker run --rm -v "${{ github.workspace }}:/data" jrog603/pandoc_installed:latest sh -c "cd /data && for file in $(find . -name '*.md'); do pandoc \"$file\" --template template.html --toc --css=style.css -o \"${file%.md}.html\"; done"
+      - name: Convert MD to HTML
+        run: |
+          docker run --rm -v "${{ github.workspace }}:/data" jrog603/pandoc_installed:latest sh -c "cd /data && find . -name '*.md' | while read file; do pandoc \"$file\" --template template.html --toc --css=style.css -o \"${file%.md}.html\"; done"
 
-    - name: Format HTML files
-      run: |
-        find . -name "*.html" -exec prettier --write {} +
+      - name: Format HTML files
+        run: |
+          find . -name "*.html" -exec prettier --write {} +
 
-    - name: Commit and push
-      env:
-        GH_PAT: ${{ secrets.GH_PAT }}
-      run: |
-        git config user.name "Jacob Rogers"
-        git config user.email "rogersair2@aol.com"
-        git add -A
-        git commit -m "Convert MD to HTML"
-        if [ $? -ne 0 ]; then
-          echo "No changes to commit"
-        else
-          git remote set-url origin https://x-access-token:$GH_PAT@github.com/jacobrogers603/notes_md_to_web_pipeline.git
-          git push
-        fi
+      - name: Commit and push
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git config user.name "Jacob Rogers"
+          git config user.email "rogersair2@aol.com"
+          git add -A
+          git commit -m "Convert MD to HTML"
+          if [ $? -ne 0 ]; then
+            echo "No changes to commit"
+          else
+            git remote set-url origin https://x-access-token:$GH_PAT@github.com/jacobrogers603/notes_md_to_web_pipeline.git
+            git push
+          fi
