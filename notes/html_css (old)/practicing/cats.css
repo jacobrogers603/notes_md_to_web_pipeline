@@ -1,0 +1,68 @@
+
+.three_cols {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    column-gap: 20px;
+}
+
+.profile {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.mutualFriends {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    column-gap: 10px;
+    align-items: center;
+    margin-bottom: 8px;
+    margin-left: 10px;
+}
+
+.name {
+    font-weight: 1000;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    margin-left: 10px;
+}
+
+.mutualImage {
+    object-fit: cover;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.mutualFriendsText {
+    color: gray;
+    vertical-align: middle;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+button {
+    background-color: rgb(24, 119, 242);
+    color: white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border: none;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: rgba(24, 118, 242, 0.763);
+}
+
+button:active {
+    background-color: aqua;
+}

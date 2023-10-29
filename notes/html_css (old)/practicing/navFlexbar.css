@@ -1,0 +1,52 @@
+.navBar {
+    display: flex;
+    background-color: rgb(120, 82, 178);
+    color: white;
+    justify-content: space-between;
+    height: 40px;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: Arial;
+    font-size: 1em;
+}
+
+.home {
+   width: 70px;
+   font-weight: bold;
+}
+
+.search {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    font-size: 1em;
+    padding: 0.5em 1em;
+}
+
+input {
+    flex: 1;
+    margin-left: 20px;
+    margin-right: 40px;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: none;
+}
+
+.download {
+    color: white;
+    width: 80px;
+    background-color: rgb(120, 82, 178);
+    text-align: center;
+    border-width: 1px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-color: white;
+    border-radius: 2px;
+    border-style: solid;
+}

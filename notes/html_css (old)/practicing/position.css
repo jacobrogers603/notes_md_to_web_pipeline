@@ -1,0 +1,22 @@
+body {
+    height: 5000px;
+}
+
+#a14 {
+    background-color: black;
+    color: wheat;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+#b14 {
+    background-color: aquamarine;
+    color: whitesmoke;
+    position: fixed;
+    width: 200px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
