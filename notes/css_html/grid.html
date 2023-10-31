@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#responsive-techniques">Responsive techniques</a>
+          <ul>
+            <li><a href="#media-queries">Media queries</a></li>
+            <li>
+              <a href="#columns-auto-fit-min-max-technique"
+                >columns auto-fit min-max technique</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="responsive-techniques">Responsive techniques</h1>
+    <h2 id="media-queries">Media queries</h2>
+    <pre><code>@media (min-width: 550px) {
+    .gridContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}</code></pre>
+    <p>
+      something like this to manually change the number of columns when the
+      screen becomes wide enough.
+    </p>
+    <h2 id="columns-auto-fit-min-max-technique">
+      columns auto-fit min-max technique
+    </h2>
+    <pre><code>grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</code></pre>
+    <p>
+      When each grid cell does not have at least 250px of space on one row, it
+      will automatically create new rows to fit them all.
+    </p>
+    <p>
+      <em
+        >you can combine that with media queries to make more complex lay
+        outs.</em
+      >
+    </p>
+    <p>
+      <strong>auto-fit</strong> Will make the grid fill up the maximum size of
+      the browser. <strong>auto-fill</strong> Will not extend the size of the
+      grid cells past their max size.
+    </p>
+  </body>
+</html>
