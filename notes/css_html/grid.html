@@ -9,6 +9,7 @@
   <body>
     <nav id="TOC">
       <ul>
+        <li><a href="#axes">axes</a></li>
         <li>
           <a href="#responsive-techniques">Responsive techniques</a>
           <ul>
@@ -18,10 +19,29 @@
                 >columns auto-fit min-max technique</a
               >
             </li>
+            <li>
+              <a href="#place-items">place-items</a>
+              <ul>
+                <li><a href="#align-items">align-items</a></li>
+                <li><a href="#justify-items">justify-items</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#place-content">place-content</a>
+              <ul>
+                <li><a href="#justify-content">justify-content</a></li>
+                <li><a href="#align-content">align-content</a></li>
+              </ul>
+            </li>
           </ul>
         </li>
       </ul>
     </nav>
+    <h1 id="axes">axes</h1>
+    <p>
+      Grid has the <strong>inline axis (row / x)</strong> and the
+      <strong>block axis (column / y)</strong>.
+    </p>
     <h1 id="responsive-techniques">Responsive techniques</h1>
     <h2 id="media-queries">Media queries</h2>
     <pre><code>@media (min-width: 550px) {
@@ -51,6 +71,37 @@
       <strong>auto-fit</strong> Will make the grid fill up the maximum size of
       the browser. <strong>auto-fill</strong> Will not extend the size of the
       grid cells past their max size.
+    </p>
+    <h2 id="place-items">place-items</h2>
+    <p>
+      For aligning items within their grid cells. A shorthand property that
+      controls both <em>align-items</em> and <em>justify-items</em> at the same
+      time.
+    </p>
+    <h3 id="align-items">align-items</h3>
+    <p>
+      Will set the <em>align-self</em> property on all child items, thus
+      controlling the alignment of the children along the cross axis.
+    </p>
+    <h3 id="justify-items">justify-items</h3>
+    <p>
+      Will set the <em>justify-self</em> property on all child items, thus
+      controlling the justification of the items within their grid cells.
+    </p>
+    <h2 id="place-content">place-content</h2>
+    <p>
+      For aligning the entire set of grid cells within a container. A shorthand
+      for <em>justify-content</em> and <em>align-content</em> at the same time.
+    </p>
+    <h3 id="justify-content">justify-content</h3>
+    <p>
+      Will set the justification of all grid cells themselves, along the inline
+      axis.
+    </p>
+    <h3 id="align-content">align-content</h3>
+    <p>
+      Sets the distribution of space between and around content items (grid
+      cells) along the block axis.
     </p>
   </body>
 </html>
