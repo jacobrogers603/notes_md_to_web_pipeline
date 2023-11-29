@@ -20,3 +20,18 @@ Somehow this makes sure the body covers the whole viewport when we have a navbar
 # width
 ## width of body
 should normally be 100%
+
+## narrow width, unable to scroll left fix by Trent
+```
+@media (max-width: 300px) {
+    body {
+        align-items: flex-start;
+    }   
+}
+```
+
+## when a grid uses auto-fit and goes from for example, 2 cols to 1 col, it will look stretched
+you need to use a media query to reset the max-width
+```
+
+```
