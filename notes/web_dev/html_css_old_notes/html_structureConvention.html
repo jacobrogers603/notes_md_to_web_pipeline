@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#proper-strucutre-of-html-files"
+            >Proper strucutre of HTML files</a
+          >
+          <ul>
+            <li><a href="#body-element">Body element</a></li>
+            <li><a href="#head-element">Head element</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="proper-strucutre-of-html-files">Proper strucutre of HTML files</h1>
+    <ul>
+      <li><p>All files start with &lt;!DOCTYPE html&gt;</p></li>
+      <li>
+        Create an html element &lt;html&gt;&lt;/html&gt;
+        <ul>
+          <li>Create a head element &lt;head&gt;&lt;/head&gt;</li>
+          <li>Create a body element &lt;body&gt;&lt;/body&gt;</li>
+        </ul>
+      </li>
+    </ul>
+    <h2 id="body-element">Body element</h2>
+    <p>Will contain all visible elements on the page</p>
+    <h2 id="head-element">Head element</h2>
+    <ul>
+      <li>
+        includes the <strong>title tag</strong> for the tab on the browser
+      </li>
+      <li>
+        includes the <strong>style element</strong> if we’re putting css in the
+        same file
+      </li>
+      <li>includes the <strong>meta</strong> elements…</li>
+      <li>
+        can load <strong>fonts</strong> by copying exact code into the head
+        element.
+      </li>
+      <li>
+        includes <strong>link element</strong> that will link a css file (void
+        element doesn’t require a closing tag): rel = what kind of thing we are
+        linking, href is the link to said file.
+      </li>
+    </ul>
+    <p>ex:</p>
+    <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code></pre>
+  </body>
+</html>

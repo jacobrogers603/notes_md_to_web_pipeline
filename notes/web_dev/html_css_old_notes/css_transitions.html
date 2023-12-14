@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#transitions">Transitions</a>
+          <ul>
+            <li><a href="#it-takes-2-arguments">It takes 2 arguments:</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="transitions">Transitions</h1>
+    <p>
+      When using pseudo-classes, which change from one style to another, we can
+      make the transition smooth and not instant.
+    </p>
+    <p>
+      <strong
+        >They should usually be put in the class itself, not the psuedo
+        class.</strong
+      >
+    </p>
+    <h3 id="it-takes-2-arguments">It takes 2 arguments:</h3>
+    <ol type="1">
+      <li>the <strong>property</strong> to target for the transition</li>
+      <li>the <strong>time</strong> it takes to do the transition</li>
+    </ol>
+    <p>for example:</p>
+    <pre><code>button {
+    background-color: red;
+    transition: opacity 1s;
+}
+
+button: hover {
+    opacity: 0.5;
+}</code></pre>
+  </body>
+</html>

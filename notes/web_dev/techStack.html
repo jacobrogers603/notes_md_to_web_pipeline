@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech stack</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#possible-stacks">Possible Stacks</a>
+          <ul>
+            <li><a href="#svelte-ts-tailwind">Svelte, TS, tailwind,</a></li>
+            <li><a href="#browser-environment">browser environment</a></li>
+            <li><a href="#react">react</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <p>We need to choose a tech stack.</p>
+    <p>
+      There are considerations to take into account such as hirability and
+      scalability. We want to make our own businesses, but also need to land a
+      remote job in the short term to gain the time freedom.
+    </p>
+    <h1 id="possible-stacks">Possible Stacks</h1>
+    <h2 id="svelte-ts-tailwind">Svelte, TS, tailwind,</h2>
+    <h2 id="browser-environment">browser environment</h2>
+    <p>
+      static site = same content, always same dynamic site = will populate parts
+      of the site differently for different users (ie youtube)
+    </p>
+    <p>
+      the user types in the URL, looks up domain name, finds IP address, routes
+      to that IP address w/ routing process, sends HTTP request from client,
+      reaches server, the server analyzes it and preforms needed server side
+      logic for specific user (if dynamic), will sends info back to client,
+      displays.
+    </p>
+    <p>
+      for static site, the server sends back html, css, and js to the client,
+      the client’s browser will parse all that and render the web page to the
+      user. This is sent to the client zipped up.
+    </p>
+    <p>
+      html is a tree, css is layering ontop of the html tree, will style nodes
+      of that tree.
+    </p>
+    <p>
+      For a dynamic site there are components that have fields that get filled
+      in based on the user. For youtube, some backend lang will determine which
+      things to fill in the fields with. An HTML template is filled in.
+    </p>
+    <p>
+      there are different templating languages, an entire template for the web
+      page and the template is made and all sent together
+    </p>
+    <p>
+      react creates a virtual dom in memory, will update the actual dom to
+      reflect the virtual dom. The entire dom gets rerendered any time there is
+      a change in the virtual dom, the whole dom gets reloaded. With vue only
+      that specific component gets re rendered. Svelte does it down to the level
+      of elements.
+    </p>
+    <h2 id="react">react</h2>
+    <p>react does something called virtual DOM, this</p>
+  </body>
+</html>
