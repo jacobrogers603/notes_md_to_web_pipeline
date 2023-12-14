@@ -46,5 +46,9 @@ fs.writeFileSync('index.md', '', { encoding: 'utf8' });
 const header = '---\ntitle: "Notes Table of Contents"\n---\n';
 const contentWithHeader = header + toc;
 
-// Write to the file
-fs.writeFileSync('TableOfContents.md', contentWithHeader, { flag: 'w' });
+if (!fs.existsSync('index.md')) {
+    fs.writeFileSync('index.md', contentWithHeader, { flag: 'w' });
+} else {
+    console.log('index.md already exists. Overwriting it with new content.');
+    fs.writeFileSync('index.md', contentWithHeader, { flag: 'w' });
+}
