@@ -6,7 +6,6 @@ title: "Notes Table of Contents"
     - [2 Web Dev Plans](notes/general_life_plans/2_webDevPlans.html) ([md file](notes/general_life_plans/2_webDevPlans.md))
 - ideas/
     - [Maslow App](notes/ideas/maslowApp.html) ([md file](notes/ideas/maslowApp.md))
-- [Test](notes/test.html) ([md file](notes/test.md))
 - web_dev/
     - css_html/
         - [Css Border](notes/web_dev/css_html/css_border.html) ([md file](notes/web_dev/css_html/css_border.md))
@@ -46,5 +45,3 @@ title: "Notes Table of Contents"
     - [Tech Stack](notes/web_dev/techStack.html) ([md file](notes/web_dev/techStack.md))
     - virtual_enviornment/
         - [Venv](notes/web_dev/virtual_enviornment/venv.html) ([md file](notes/web_dev/virtual_enviornment/venv.md))
-- women/
-    - [1 Trents Ideas On Women](notes/women/1_trentsIdeasOnWomen.html) ([md file](notes/women/1_trentsIdeasOnWomen.md))
