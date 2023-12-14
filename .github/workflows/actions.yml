@@ -13,30 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: compile TS code
-        run: |
-          tsc toc.ts
-
-      - name: run JS code
-        run: |
-          node toc.js
-
       - name: Convert MD to HTML
         run: |
-          docker run --rm -v "${{ github.workspace }}:/data" jrog603/myapp:latest sh -c "\
-            cd /data && \
-            pwd && \
-            ls -l && \
-            find . -name '*.md' && \
-            find . -name '*.md' | while IFS= read -r file; do \
-              echo \"Processing \$file\"; \
-              pandoc \"\$file\" --template template.html --toc -o \"\${file%.md}.html\"; \
-            done"
-
-
-      - name: Format HTML files
-        run: |
-          docker run --rm -v "${{ github.workspace }}:/data" jrog603/myapp:latest sh -c "cd /data && format-html"
+          docker run --rm -v "${{ github.workspace }}:/usr/src/app" username/md_to_html
 
       - name: Commit and push
         env:
@@ -53,4 +32,3 @@ jobs:
             git remote set-url origin https://x-access-token:$GH_PAT@github.com/jacobrogers603/notes_md_to_web_pipeline.git
             git push
           fi
-
