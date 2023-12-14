@@ -33,6 +33,7 @@ RUN npx tsc
 
 # Run the command to convert MD to HTML and format HTML files
 CMD sh -c "\
+    node toc.js && \
     find . -name '*.md' | while IFS= read -r file; do \
       echo \"Processing \$file\"; \
       pandoc \"\$file\" --template template.html --toc -o \"\${file%.md}.html\"; \
