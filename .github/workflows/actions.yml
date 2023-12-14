@@ -15,7 +15,7 @@ jobs:
 
       - name: Convert MD to HTML
         run: |
-          docker run --rm -v "${{ github.workspace }}:/usr/src/app" username/md_to_html
+          docker run --rm -v "${{ github.workspace }}:/usr/src/app" jrog603/md_to_html
 
       - name: Commit and push
         env:
