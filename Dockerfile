@@ -1,15 +1,14 @@
 # Dockerfile
 FROM ubuntu:latest
 
-# Use the official Node.js 16 image as a base image
-FROM node:16
+# Install Node.js and npm
+RUN apt-get update && \
+    apt-get install -y curl && \
+    curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -y nodejs
 
 # Install Prettier globally
 RUN npm install -g prettier
-
-# Install Fs and Path
-RUN npm install fs
-RUN npm install path
 
 # Install Pandoc
 RUN apt-get update && \
