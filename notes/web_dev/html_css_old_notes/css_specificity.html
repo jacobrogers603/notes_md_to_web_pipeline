@@ -7,8 +7,41 @@
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
-    <button id="returnToIndex">
-      <a href="./index.md"></a>
-    </button>
+    <nav id="TOC">
+      <ul>
+        <li><a href="#css-specificity">CSS Specificity</a></li>
+      </ul>
+    </nav>
+    <h1 id="css-specificity">CSS Specificity</h1>
+    <p>
+      If styles are being set on the same element in multiple places in a css
+      file then the browser will assign a style to it based on a priority list:
+    </p>
+    <p>
+      The css Selector that is the <strong>MOST SPECIFIC</strong> has the
+      highest priority.
+    </p>
+    <p><strong>id name &gt; class name &gt; element name</strong></p>
+    <p><em>For example:</em></p>
+    <pre><code>.para-type1 {
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+#specific-para-type1 {
+    margin-bottom: 30px;
+}</code></pre>
+    <hr />
+    <pre><code>&lt;p class=&quot;para-type1&quot; id=&quot;specific-para-type1&quot;&gt;
+  Text
+&lt;/p&gt;</code></pre>
+    <hr />
+    <p>
+      In this scenario the text will get the margin-bottom of 30px because it
+      chooses the most specific one.
+    </p>
   </body>
 </html>
