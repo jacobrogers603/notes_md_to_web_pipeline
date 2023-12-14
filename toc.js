@@ -19,19 +19,30 @@ function createTableOfContents(dir, basePath, indent) {
         var filePath = path.join(dir, file);
         var stat = fs.statSync(filePath);
         if (stat.isDirectory()) {
-            var formattedName = formatName(file);
-            tableOfContents += "".concat(indent, "- ").concat(formattedName, "\n");
+            tableOfContents += "".concat(indent, "- ").concat(file, "/\n");
             tableOfContents += createTableOfContents(filePath, path.join(basePath, file), indent + '    ');
         }
         else if (file.endsWith('.md')) {
-            var formattedName = formatName(file.replace('.md', ''));
             var relativePath = path.join(basePath, file);
-            tableOfContents += "".concat(indent, "- [").concat(formattedName, "](").concat(relativePath, ")\n");
+            var fileNameWithoutExtension = file.replace('.md', '');
+            var htmlRelativePath = "".concat(relativePath.replace('.md', '.html'));
+            // Markdown link labeled "md file" and HTML link
+            tableOfContents += "".concat(indent, "- [").concat(formatName(fileNameWithoutExtension), "](").concat(htmlRelativePath, ") ([md file](").concat(relativePath, "))\n");
         }
     });
     return tableOfContents;
 }
 var toc = createTableOfContents('./notes', './notes');
 console.log(toc);
+// Clear the file.
 fs.writeFileSync('index.md', '', { encoding: 'utf8' });
-fs.writeFileSync('index.md', toc);
+// Prepend the desired header
+var header = '---\ntitle: "Notes Table of Contents"\n---\n';
+var contentWithHeader = header + toc;
+if (!fs.existsSync('index.md')) {
+    fs.writeFileSync('index.md', contentWithHeader, { flag: 'w' });
+}
+else {
+    console.log('index.md already exists. Overwriting it with new content.');
+    fs.writeFileSync('index.md', contentWithHeader, { flag: 'w' });
+}

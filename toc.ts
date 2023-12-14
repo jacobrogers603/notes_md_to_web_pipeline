@@ -22,13 +22,14 @@ function createTableOfContents(dir: string, basePath: string = '', indent: strin
         const stat = fs.statSync(filePath);
 
         if (stat.isDirectory()) {
-            const formattedName = formatName(file);
-            tableOfContents += `${indent}- ${formattedName}\n`;
+            tableOfContents += `${indent}- ${file}/\n`;
             tableOfContents += createTableOfContents(filePath, path.join(basePath, file), indent + '    ');
         } else if (file.endsWith('.md')) {
-            const formattedName = formatName(file.replace('.md', ''));
             const relativePath = path.join(basePath, file);
-            tableOfContents += `${indent}- [${formattedName}](${relativePath})\n`;
+            const fileNameWithoutExtension = file.replace('.md', '');
+            const htmlRelativePath = `${relativePath.replace('.md', '.html')}`;
+            // Markdown link labeled "md file" and HTML link
+            tableOfContents += `${indent}- [${formatName(fileNameWithoutExtension)}](${htmlRelativePath}) ([md file](${relativePath}))\n`;
         }
     });
 
