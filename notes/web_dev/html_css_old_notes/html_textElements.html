@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,8 +7,51 @@
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
-    <button id="returnToIndex">
-      <a href="./index.md"></a>
-    </button>
+        <nav id="TOC"><ul>
+<li><a href="#html-text-elements">HTML Text Elements</a><ul>
+<li><a href="#list-of-html-text-elements">List of HTML Text Elements:</a></li>
+<li><a href="#span">Span</a></li>
+</ul></li>
+</ul></nav>
+     <h1 id="html-text-elements">HTML Text Elements</h1>
+<p>These exist inside a line of text and modify that part of the text.</p>
+<p><em>For example:</em></p>
+<pre><code>&lt;p&gt;
+  Lorem ipsum dolor &lt;strong&gt;sit amet consectetur&lt;/strong&gt; adipisicing elit. Error, saepe.
+&lt;/p&gt;</code></pre>
+<p>The strong tag makes that text bold.</p>
+<h2 id="list-of-html-text-elements">List of HTML Text Elements:</h2>
+<ul>
+<li><b> - Bold text &lt;b&gt;</li>
+<li><strong> - Important text &lt;strong&gt;</li>
+<li><i> - Italic text &lt;i&gt;</li>
+<li><em> - Emphasized text &lt;em&gt;</li>
+<li><mark> - Marked text &lt;mark&gt;</li>
+<li><small> - Smaller text &lt;small&gt;</li>
+<li><del>
+<ul>
+<li>Deleted text &lt;del&gt;</li>
+</ul></li>
+<li><ins>
+<ul>
+<li>Inserted text &lt;ins&gt;</li>
+</ul></li>
+<li><sub> - Subscript text &lt;sub&gt;</li>
+<li><sup> - Superscript text &lt;sup&gt;</li>
+</ul>
+<h2 id="span">Span</h2>
+<p>Has no inherent styling. Allows you to assign it a class or id name and style it youself in css.</p>
+<pre><code>&lt;p&gt;
+  Lorem ipsum dolor &lt;span class=&quot;spanTest&quot;&gt;sit amet consectetur&lt;/span&gt; adipisicing elit. Totam velit culpa eveniet adipisci!
+&lt;/p&gt;
+
+.spanTest {
+    color: red;
+}
+
+.spanTest: hover {
+    text-decoration: underline;
+}</code></pre>
+<p>Can be used to add extra spacing between words in sentences using a margin in span styling.</p>
   </body>
 </html>
