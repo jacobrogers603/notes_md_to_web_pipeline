@@ -15,7 +15,7 @@ jobs:
 
       - name: compile TS code
         run: |
-          tsc .\toc.ts
+          tsc toc.ts
 
       - name: run JS code
         run: |
