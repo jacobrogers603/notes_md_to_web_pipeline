@@ -39,5 +39,12 @@ function createTableOfContents(dir: string, basePath: string = '', indent: strin
 const toc = createTableOfContents('./notes', './notes');
 console.log(toc);
 
+// Clear the file.
 fs.writeFileSync('index.md', '', { encoding: 'utf8' });
-fs.writeFileSync('index.md', toc);
+
+// Prepend the desired header
+const header = '---\ntitle: "Notes Table of Contents"\n---\n';
+const contentWithHeader = header + toc;
+
+// Write to the file
+fs.writeFileSync('TableOfContents.md', contentWithHeader, { flag: 'w' });
