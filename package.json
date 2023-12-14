@@ -1,0 +1,23 @@
+{
+  "name": "notes_md_to_web_pipeline",
+  "version": "1.0.0",
+  "description": "[link to pages site](https://jacobrogers603.github.io/notes_md_to_web_pipeline/)",
+  "main": "toc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacobrogers603/notes_md_to_web_pipeline.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacobrogers603/notes_md_to_web_pipeline/issues"
+  },
+  "homepage": "https://github.com/jacobrogers603/notes_md_to_web_pipeline#readme",
+  "devDependencies": {
+    "@types/node": "^20.10.4"
+  }
+}

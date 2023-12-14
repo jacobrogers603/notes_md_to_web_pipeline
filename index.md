@@ -1,0 +1,46 @@
+- General Life Plans
+    - [1 Overall Goals](notes\general_life_plans\1_overallGoals.md)
+    - [2 Web Dev Plans](notes\general_life_plans\2_webDevPlans.md)
+- Ideas
+    - [Maslow App](notes\ideas\maslowApp.md)
+- Web Dev
+    - Css Html
+        - [Css Border](notes\web_dev\css_html\css_border.md)
+        - [Css Box Shadow](notes\web_dev\css_html\css_box_shadow.md)
+        - [Css Dialog](notes\web_dev\css_html\css_dialog.md)
+        - [Css Height Width](notes\web_dev\css_html\css_height_width.md)
+        - [Css Images](notes\web_dev\css_html\css_images.md)
+        - [Css Selectors](notes\web_dev\css_html\css_selectors.md)
+        - [Grid](notes\web_dev\css_html\grid.md)
+        - [Html Div](notes\web_dev\css_html\html_div.md)
+        - [Text Area](notes\web_dev\css_html\textArea.md)
+    - Html Css Old Notes
+        - [Css Alignment](notes\web_dev\html_css_old_notes\css_alignment.md)
+        - [Css Box Model](notes\web_dev\html_css_old_notes\css_boxModel.md)
+        - [Css Cursor](notes\web_dev\html_css_old_notes\css_cursor.md)
+        - [Css Display Property](notes\web_dev\html_css_old_notes\css_displayProperty.md)
+        - [Css Flex Box](notes\web_dev\html_css_old_notes\css_flexBox.md)
+        - [Css Grid](notes\web_dev\html_css_old_notes\css_grid.md)
+        - [Css Images](notes\web_dev\html_css_old_notes\css_images.md)
+        - [Css Position](notes\web_dev\html_css_old_notes\css_position.md)
+        - [Css Shadows](notes\web_dev\html_css_old_notes\css_shadows.md)
+        - [Css Specificity](notes\web_dev\html_css_old_notes\css_specificity.md)
+        - [Css Text](notes\web_dev\html_css_old_notes\css_Text.md)
+        - [Css Transitions](notes\web_dev\html_css_old_notes\css_transitions.md)
+        - [Html Div Element](notes\web_dev\html_css_old_notes\html_divElement.md)
+        - [Html Element Attributes](notes\web_dev\html_css_old_notes\html_ElementAttributes.md)
+        - [Html Entities](notes\web_dev\html_css_old_notes\html_entities.md)
+        - [Html Flex Boxes](notes\web_dev\html_css_old_notes\html_flexBoxes.md)
+        - [Html Images](notes\web_dev\html_css_old_notes\html_images.md)
+        - [Html Input Element](notes\web_dev\html_css_old_notes\html_inputElement.md)
+        - [Html Linking CSS](notes\web_dev\html_css_old_notes\html_linkingCSS.md)
+        - [Html Most Importat Tags](notes\web_dev\html_css_old_notes\html_mostImportatTags.md)
+        - [Html Structure Convention](notes\web_dev\html_css_old_notes\html_structureConvention.md)
+        - [Html Text Elements](notes\web_dev\html_css_old_notes\html_textElements.md)
+        - Practicing
+        - Resources
+    - [Tech Stack](notes\web_dev\techStack.md)
+    - Virtual Enviornment
+        - [Venv](notes\web_dev\virtual_enviornment\venv.md)
+- Women
+    - [1 Trents Ideas On Women](notes\women\1_trentsIdeasOnWomen.md)
