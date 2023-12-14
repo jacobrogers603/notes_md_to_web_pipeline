@@ -7,6 +7,10 @@ FROM node:16
 # Install Prettier globally
 RUN npm install -g prettier
 
+# Install Fs and Path
+RUN npm install fs
+RUN npm install path
+
 # Install Pandoc
 RUN apt-get update && \
     apt-get install -y pandoc && \
