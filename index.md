@@ -7,6 +7,7 @@ title: "Notes Table of Contents"
 - ideas/
     - [Maslow App](notes/ideas/maslowApp.html) ([md file](notes/ideas/maslowApp.md))
 - web_dev/
+    - [DOM Overview](notes/web_dev/DOM_overview.html) ([md file](notes/web_dev/DOM_overview.md))
     - css_html/
         - [Css Border](notes/web_dev/css_html/css_border.html) ([md file](notes/web_dev/css_html/css_border.md))
         - [Css Box Shadow](notes/web_dev/css_html/css_box_shadow.html) ([md file](notes/web_dev/css_html/css_box_shadow.md))
@@ -17,6 +18,7 @@ title: "Notes Table of Contents"
         - [Grid](notes/web_dev/css_html/grid.html) ([md file](notes/web_dev/css_html/grid.md))
         - [Html Div](notes/web_dev/css_html/html_div.html) ([md file](notes/web_dev/css_html/html_div.md))
         - [Text Area](notes/web_dev/css_html/textArea.html) ([md file](notes/web_dev/css_html/textArea.md))
+    - [Frameworks](notes/web_dev/frameworks.html) ([md file](notes/web_dev/frameworks.md))
     - html_css_old_notes/
         - [Css Text](notes/web_dev/html_css_old_notes/css_Text.html) ([md file](notes/web_dev/html_css_old_notes/css_Text.md))
         - [Css Alignment](notes/web_dev/html_css_old_notes/css_alignment.html) ([md file](notes/web_dev/html_css_old_notes/css_alignment.md))
@@ -42,6 +44,8 @@ title: "Notes Table of Contents"
         - [Html Text Elements](notes/web_dev/html_css_old_notes/html_textElements.html) ([md file](notes/web_dev/html_css_old_notes/html_textElements.md))
         - practicing/
         - resources/
+    - react/
+        - [React Overview](notes/web_dev/react/react_overview.html) ([md file](notes/web_dev/react/react_overview.md))
     - [Tech Stack](notes/web_dev/techStack.html) ([md file](notes/web_dev/techStack.md))
     - virtual_enviornment/
         - [Venv](notes/web_dev/virtual_enviornment/venv.html) ([md file](notes/web_dev/virtual_enviornment/venv.md))
