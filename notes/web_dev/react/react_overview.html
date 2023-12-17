@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Overview</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#what-is-react-at-a-high-level"
+            >What is react at a high level</a
+          >
+        </li>
+        <li>
+          <a href="#problems-that-react-solves">Problems that React solves</a>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="what-is-react-at-a-high-level">What is react at a high level</h1>
+    <ul>
+      <li>
+        <strong>A JS library for building UIs.</strong> It is NOT a
+        <a href="../frameworks.md">framework</a>.
+      </li>
+      <li>
+        React is specifically focused on the view layer of web applications
+        (i.e., what the user sees and interacts with in the browser). It allows
+        developers to create reusable UI components.
+      </li>
+      <li>It is best at single-page-applications.</li>
+      <li>
+        <strong>Component-based</strong>: Uses reusable components that are
+        self-contained blocks of code that manage their own state and combine to
+        form full UIs.
+      </li>
+      <li>
+        <strong>Declarative</strong>: you define how you want your UI to look at
+        each state of your app and it automatically updates and renders the
+        right components when your data changes.
+      </li>
+    </ul>
+    <h1 id="problems-that-react-solves">Problems that React solves</h1>
+    <ul>
+      <li>
+        <strong>virtual DOM</strong>: is used by react which is a lightweight
+        copy of the actual <a href="../DOM_overview.md">DOM</a>. This makes
+        updating the DOM faster.
+      </li>
+      <li><strong>reusable comps</strong>: Fixes problems of redundancy.</li>
+      <li>
+        <strong>state management</strong>: keeps ui in sync with everything
+      </li>
+    </ul>
+  </body>
+</html>
