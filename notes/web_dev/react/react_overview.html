@@ -22,6 +22,14 @@
         </li>
         <li>
           <a href="#problems-that-react-solves">Problems that React solves</a>
+          <ul>
+            <li><a href="#components">Components</a></li>
+            <li>
+              <a href="#file-structure-explanation"
+                >File structure explanation</a
+              >
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
@@ -47,17 +55,57 @@
         each state of your app and it automatically updates and renders the
         right components when your data changes.
       </li>
+      <li>
+        A JS bundle must be loaded by the client’s browser for react pages to
+        work.
+      </li>
     </ul>
     <h1 id="problems-that-react-solves">Problems that React solves</h1>
     <ul>
       <li>
         <strong>virtual DOM</strong>: is used by react which is a lightweight
         copy of the actual <a href="../DOM_overview.md">DOM</a>. This makes
-        updating the DOM faster.
+        updating the DOM faster. Allows you to update parts of the page without
+        reloading the page.
       </li>
       <li><strong>reusable comps</strong>: Fixes problems of redundancy.</li>
       <li>
         <strong>state management</strong>: keeps ui in sync with everything
+      </li>
+      <li>
+        <strong>JSX</strong>: allows you to write code that is formatted like
+        html but is actually js
+      </li>
+    </ul>
+    <h2 id="components">Components</h2>
+    <ul>
+      <li>Can be created with either classes or functions.</li>
+      <li>
+        They can have <strong>states</strong> which is an object that determines
+        how a component renders and behaves.
+      </li>
+    </ul>
+    <h2 id="file-structure-explanation">File structure explanation</h2>
+    <ul>
+      <li>
+        <strong>package.json</strong>: shows your dependencies and scripts (you
+        can define commands here too).
+      </li>
+      <li>
+        <strong>public</strong>: – <strong>index.html</strong>: The single page
+        of the single-page-all that is being loaded. Note how there is a div
+        with id root.
+      </li>
+      <li>
+        <strong>src</strong>: where we put components and states –
+        <strong>index.js</strong>: we are grabbing the div id=“root” from the
+        index.html and we are inserting out app into that div (App.js) –
+        <strong>App.js</strong>: Where we do most of the editing. contains the
+        ROOT APP COMPONENT. All components that we end up creating will be in
+        the main root app component. This file contains a function where it
+        looks like there is HTML written; it is actually JSX. All code must be
+        contained within the app div (or empty angle-brackets) because JSX
+        expressions must have only one parent element.
       </li>
     </ul>
   </body>

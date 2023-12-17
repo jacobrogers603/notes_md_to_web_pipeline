@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>react props</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li><a href="#example">Example</a></li>
+        <li><a href="#default-props">default props</a></li>
+        <li>
+          <a href="#prop-types">prop types</a>
+          <ul>
+            <li><a href="#example-1">Example</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <p>How we pass parameters from App.js back to individual components.</p>
+    <h1 id="example">Example</h1>
+    <p>If in App.js we do this with title:</p>
+    <pre><code>import Header from &#39;./components/Header&#39;
+...
+&lt;Header title=&quot;Hey&quot; /&gt;
+...</code></pre>
+    <p>
+      That gets taken in as an argument in the Header.jsx component and will
+      display on the app using “Hey.” Use <strong>props</strong> as an argument
+      to the function, and use <strong>curly braces and props.title</strong> in
+      the code to use things sent from App.js.
+    </p>
+    <pre><code>const Header = (props) =&gt; {
+    return (
+        &lt;header&gt;
+            &lt;h1&gt;{props.title}&lt;/h1&gt;
+        &lt;/header&gt;
+    )
+}
+export default Header</code></pre>
+    <p>
+      can clean up the argument by not passing in props and instead passing in
+      an object:
+    </p>
+    <pre><code>const Header = ({ title }) =&gt; {
+    return (
+        &lt;header&gt;
+            &lt;h1&gt;{title}&lt;/h1&gt;
+        &lt;/header&gt;
+    )
+}
+export default Header</code></pre>
+    <h1 id="default-props">default props</h1>
+    <p>
+      If no argument is sent in from App.js, you can specify what should be
+      shown by default. So for example, in a component file below the arrow
+      function create an object like this:
+    </p>
+    <pre><code>ComponentName.defaultProps = {
+    propName: &quot;default val&quot;
+}</code></pre>
+    <h1 id="prop-types">prop types</h1>
+    <p>We can define what the datatype should be for a prop.</p>
+    <p>To import prop types with ES7 with emmet</p>
+    <pre><code>impt</code></pre>
+    <h2 id="example-1">Example</h2>
+    <pre><code>import PropTypes from &#39;prop-types&#39;
+...
+Header.propTypes = {
+    title: PropTypes.string
+}</code></pre>
+    <p>
+      You can also use <em>.isRequired</em> at the end of a propType in the json
+      object
+    </p>
+  </body>
+</html>

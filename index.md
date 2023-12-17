@@ -45,6 +45,11 @@ title: "Notes Table of Contents"
         - practicing/
         - resources/
     - react/
+        - [Components](notes/web_dev/react/components.html) ([md file](notes/web_dev/react/components.md))
+        - [Create A React App](notes/web_dev/react/create_a_react_app.html) ([md file](notes/web_dev/react/create_a_react_app.md))
+        - [Dev Server](notes/web_dev/react/dev_server.html) ([md file](notes/web_dev/react/dev_server.md))
+        - [Jsx](notes/web_dev/react/jsx.html) ([md file](notes/web_dev/react/jsx.md))
+        - [Props](notes/web_dev/react/props.html) ([md file](notes/web_dev/react/props.md))
         - [React Overview](notes/web_dev/react/react_overview.html) ([md file](notes/web_dev/react/react_overview.md))
     - [Tech Stack](notes/web_dev/techStack.html) ([md file](notes/web_dev/techStack.md))
     - virtual_enviornment/
