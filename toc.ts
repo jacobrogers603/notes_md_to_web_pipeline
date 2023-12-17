@@ -22,7 +22,7 @@ function createTableOfContents(dir: string, basePath: string = '', indent: strin
         const stat = fs.statSync(filePath);
 
         if (stat.isDirectory()) {
-            tableOfContents += `${indent}- ${file}/\n`;
+            tableOfContents += `${indent}- ${formatName(file)}\n`;
             tableOfContents += createTableOfContents(filePath, path.join(basePath, file), indent + '    ');
         } else if (file.endsWith('.md')) {
             const relativePath = path.join(basePath, file);

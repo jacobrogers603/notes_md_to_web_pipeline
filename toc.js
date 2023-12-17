@@ -19,7 +19,7 @@ function createTableOfContents(dir, basePath, indent) {
         var filePath = path.join(dir, file);
         var stat = fs.statSync(filePath);
         if (stat.isDirectory()) {
-            tableOfContents += "".concat(indent, "- ").concat(file, "/\n");
+            tableOfContents += "".concat(indent, "- ").concat(formatName(file), "\n");
             tableOfContents += createTableOfContents(filePath, path.join(basePath, file), indent + '    ');
         }
         else if (file.endsWith('.md')) {
