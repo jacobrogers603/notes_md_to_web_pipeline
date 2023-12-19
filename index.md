@@ -1,14 +1,14 @@
 ---
 title: "Notes Table of Contents"
 ---
-- general_life_plans/
+- General Life Plans
     - [1 Overall Goals](notes/general_life_plans/1_overallGoals.html) ([md file](notes/general_life_plans/1_overallGoals.md))
     - [2 Web Dev Plans](notes/general_life_plans/2_webDevPlans.html) ([md file](notes/general_life_plans/2_webDevPlans.md))
-- ideas/
+- Ideas
     - [Maslow App](notes/ideas/maslowApp.html) ([md file](notes/ideas/maslowApp.md))
-- web_dev/
+- Web Dev
     - [DOM Overview](notes/web_dev/DOM_overview.html) ([md file](notes/web_dev/DOM_overview.md))
-    - css_html/
+    - Css Html
         - [Css Border](notes/web_dev/css_html/css_border.html) ([md file](notes/web_dev/css_html/css_border.md))
         - [Css Box Shadow](notes/web_dev/css_html/css_box_shadow.html) ([md file](notes/web_dev/css_html/css_box_shadow.md))
         - [Css Dialog](notes/web_dev/css_html/css_dialog.html) ([md file](notes/web_dev/css_html/css_dialog.md))
@@ -19,7 +19,7 @@ title: "Notes Table of Contents"
         - [Html Div](notes/web_dev/css_html/html_div.html) ([md file](notes/web_dev/css_html/html_div.md))
         - [Text Area](notes/web_dev/css_html/textArea.html) ([md file](notes/web_dev/css_html/textArea.md))
     - [Frameworks](notes/web_dev/frameworks.html) ([md file](notes/web_dev/frameworks.md))
-    - html_css_old_notes/
+    - Html Css Old Notes
         - [Css Text](notes/web_dev/html_css_old_notes/css_Text.html) ([md file](notes/web_dev/html_css_old_notes/css_Text.md))
         - [Css Alignment](notes/web_dev/html_css_old_notes/css_alignment.html) ([md file](notes/web_dev/html_css_old_notes/css_alignment.md))
         - [Css Box Model](notes/web_dev/html_css_old_notes/css_boxModel.html) ([md file](notes/web_dev/html_css_old_notes/css_boxModel.md))
@@ -42,9 +42,9 @@ title: "Notes Table of Contents"
         - [Html Most Importat Tags](notes/web_dev/html_css_old_notes/html_mostImportatTags.html) ([md file](notes/web_dev/html_css_old_notes/html_mostImportatTags.md))
         - [Html Structure Convention](notes/web_dev/html_css_old_notes/html_structureConvention.html) ([md file](notes/web_dev/html_css_old_notes/html_structureConvention.md))
         - [Html Text Elements](notes/web_dev/html_css_old_notes/html_textElements.html) ([md file](notes/web_dev/html_css_old_notes/html_textElements.md))
-        - practicing/
-        - resources/
-    - react/
+        - Practicing
+        - Resources
+    - React
         - [Components](notes/web_dev/react/components.html) ([md file](notes/web_dev/react/components.md))
         - [Create A React App](notes/web_dev/react/create_a_react_app.html) ([md file](notes/web_dev/react/create_a_react_app.md))
         - [Dev Server](notes/web_dev/react/dev_server.html) ([md file](notes/web_dev/react/dev_server.md))
@@ -52,5 +52,5 @@ title: "Notes Table of Contents"
         - [Props](notes/web_dev/react/props.html) ([md file](notes/web_dev/react/props.md))
         - [React Overview](notes/web_dev/react/react_overview.html) ([md file](notes/web_dev/react/react_overview.md))
     - [Tech Stack](notes/web_dev/techStack.html) ([md file](notes/web_dev/techStack.md))
-    - virtual_enviornment/
+    - Virtual Enviornment
         - [Venv](notes/web_dev/virtual_enviornment/venv.html) ([md file](notes/web_dev/virtual_enviornment/venv.md))
