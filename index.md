@@ -50,5 +50,9 @@ title: "Notes Table of Contents"
         - [Props](notes/web_dev/react/props.html) ([md file](notes/web_dev/react/props.md))
         - [React Overview](notes/web_dev/react/react_overview.html) ([md file](notes/web_dev/react/react_overview.md))
     - [Tech Stack](notes/web_dev/techStack.html) ([md file](notes/web_dev/techStack.md))
+    - Type Script
+        - [Functions](notes/web_dev/typeScript/functions.html) ([md file](notes/web_dev/typeScript/functions.md))
+        - [Template Literals](notes/web_dev/typeScript/template_literals.html) ([md file](notes/web_dev/typeScript/template_literals.md))
+        - [Variables](notes/web_dev/typeScript/variables.html) ([md file](notes/web_dev/typeScript/variables.md))
     - Virtual Enviornment
         - [Venv](notes/web_dev/virtual_enviornment/venv.html) ([md file](notes/web_dev/virtual_enviornment/venv.md))
