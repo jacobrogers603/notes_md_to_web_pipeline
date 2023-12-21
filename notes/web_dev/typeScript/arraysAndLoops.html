@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>arrays and loops</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#arrays-and-loops-in-ts">Arrays and loops in TS</a>
+          <ul>
+            <li><a href="#foreach">forEach</a></li>
+            <li><a href="#indexof">indexOf</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="arrays-and-loops-in-ts">Arrays and loops in TS</h1>
+    <h2 id="foreach">forEach</h2>
+    <p>
+      You can loop through each item in a list and have reference to it as a
+      variable with:
+    </p>
+    <pre><code>COLORS.forEach(color =&gt; {
+      retval += color;
+})</code></pre>
+    <p>
+      We are using a combination of an in-line arrow function and the forEach
+      method.
+    </p>
+    <h2 id="indexof">indexOf</h2>
+    <p>
+      To find the index where a certain value in an array occurs you can use:
+    </p>
+    <pre><code>let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;];
+let index = fruits.indexOf(&quot;banana&quot;);
+
+console.log(index); // Outputs: 1 (if &quot;banana&quot; is found) or -1 (if not found)</code></pre>
+  </body>
+</html>

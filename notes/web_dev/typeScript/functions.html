@@ -21,6 +21,33 @@
             <li><a href="#export">export</a></li>
           </ul>
         </li>
+        <li>
+          <a href="#arrow-functions-anon-functions"
+            >Arrow Functions / anon functions</a
+          >
+          <ul>
+            <li><a href="#basic-syntax">Basic Syntax</a></li>
+            <li>
+              <a href="#examples">examples</a>
+              <ul>
+                <li><a href="#no-parameters">No parameters</a></li>
+                <li><a href="#single-parameter">Single parameter</a></li>
+                <li><a href="#multiple-parameters">Multiple parameters</a></li>
+                <li>
+                  <a href="#with-a-function-body-requires"
+                    >With a function body (requires {})</a
+                  >
+                </li>
+                <li><a href="#lexical-this">lexical this</a></li>
+                <li>
+                  <a href="#shorthand-for-one-parameter"
+                    >Shorthand for one parameter</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <h1 id="example">example</h1>
@@ -32,5 +59,55 @@
       if you said <code>export function name()...</code> you could import that
       function and use it in another location
     </p>
+    <h1 id="arrow-functions-anon-functions">
+      Arrow Functions / anon functions
+    </h1>
+    <p>
+      <strong>=&gt;</strong> is syntax for an anonymous function.
+      <em
+        >It does not bind its own: this, arguments, super, or new.target. Useful
+        if you want to preserve the lexical scope of this</em
+      >
+    </p>
+    <h2 id="basic-syntax">Basic Syntax</h2>
+    <pre><code>(parameters) =&gt; {
+    // Function body
+}</code></pre>
+    <h2 id="examples">examples</h2>
+    <h3 id="no-parameters">No parameters</h3>
+    <p><code>let sayHello = () =&gt; console.log(&quot;Hello&quot;);</code></p>
+    <h3 id="single-parameter">Single parameter</h3>
+    <p><code>let square = (x) =&gt; x * x;</code></p>
+    <h3 id="multiple-parameters">Multiple parameters</h3>
+    <p><code>let add = (a, b) =&gt; a + b;</code></p>
+    <h3 id="with-a-function-body-requires">
+      With a function body (requires {})
+    </h3>
+    <pre><code>let greet = (name) =&gt; {
+  let message = `Hello, ${name}`;
+  return message;
+};</code></pre>
+    <h3 id="lexical-this">lexical this</h3>
+    <p>
+      arrow functions capture the ‘this’ value of the enclosing context, making
+      them ideal for use in callbacks and methods defined with objects.
+    </p>
+    <pre><code>class MyClass {
+  value = 20;
+  showValue = () =&gt; {
+    console.log(this.value); // `this` refers to MyClass instance
+  }
+}</code></pre>
+    <h3 id="shorthand-for-one-parameter">Shorthand for one parameter</h3>
+    <p>
+      Here we do not need the ()s around <code>item</code>, which is the single
+      parameter being passed into the arrow function. If there is one parameter,
+      the ()s can be omitted.
+    </p>
+    <pre><code>let array = [1, 2, 3, 4, 5];
+
+array.forEach(item =&gt; {
+  console.log(item);
+});</code></pre>
   </body>
 </html>
