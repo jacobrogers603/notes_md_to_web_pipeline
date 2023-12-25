@@ -45,7 +45,7 @@ if (typeof value === "number") {
 ### Complex types
 
 - **Arrays**: `let list: number[] = [1, 2, 3];`
-- **Tuples**: *Note, you can have any number of values in a tuple, just define their types as follows:*
+- **Tuples**: Tuples are accessed like arrays. *Note, you can have any number of values in a tuple, just define their types as follows:* 
 ```
 let myTuple: [string, number, boolean] = ["hello", 42, true];
 ```
