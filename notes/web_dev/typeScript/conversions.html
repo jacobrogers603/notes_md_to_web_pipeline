@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TS conversions</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#conversions-in-ts">Conversions in TS</a>
+          <ul>
+            <li>
+              <a href="#string-to-number">String to Number</a>
+              <ul>
+                <li>
+                  <a href="#parseint-parsefloat">parseInt &amp; parseFloat</a>
+                </li>
+                <li><a href="#section">+</a></li>
+                <li><a href="#examples">examples</a></li>
+              </ul>
+            </li>
+            <li><a href="#number-to-string">number to string</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="conversions-in-ts">Conversions in TS</h1>
+    <h2 id="string-to-number">String to Number</h2>
+    <h3 id="parseint-parsefloat">parseInt &amp; parseFloat</h3>
+    <p>
+      Parses up to the first non-numeric character with parseInt returning an
+      integer and parseFloat returning a floating-point number.
+    </p>
+    <h3 id="section">+</h3>
+    <p>
+      The unary <strong>+</strong> operator converts the entire string to a
+      number.
+    </p>
+    <p>
+      Does not handle non-numeric characters well. Will return NaN if it isn’t
+      purely numeric.
+    </p>
+    <h3 id="examples">examples</h3>
+    <p><code>+&quot;123.45&quot; -&gt; 123.45</code></p>
+    <p><code>parseInt(&quot;123.45&quot;) -&gt; 123</code></p>
+    <p><code>parseFloat(&quot;123.45&quot;) -&gt; 123.45</code></p>
+    <h2 id="number-to-string">number to string</h2>
+    <p>
+      You can use <strong>num.toString()</strong> or
+      <strong>template literals</strong>.
+    </p>
+    <pre><code>let num = 123;
+let str1 = num.toString();
+let str2 = `${num}`;</code></pre>
+  </body>
+</html>
