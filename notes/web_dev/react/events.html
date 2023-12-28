@@ -21,6 +21,11 @@
             <li><a href="#onclick">onClick</a></li>
           </ul>
         </li>
+        <li>
+          <a href="#passing-args-up-the-prop-pipeline-to-a-function-example"
+            >Passing args up the prop pipeline to a function example</a
+          >
+        </li>
       </ul>
     </nav>
     <h1 id="events-in-react">Events in React</h1>
@@ -46,5 +51,93 @@
       {props.text}
     &lt;/button&gt;
   );</code></pre>
+    <h1 id="passing-args-up-the-prop-pipeline-to-a-function-example">
+      Passing args up the prop pipeline to a function example
+    </h1>
+    <p>
+      Here is the function, <code>deleteTask</code>, at the top level
+      <code>app.jsx</code> that is wanting to be called. Note that it takes one
+      argument, <code>id</code>.
+    </p>
+    <pre><code>const deleteTask = (id) =&gt; {
+  setTasks(tasks.filter((task) =&gt; task.id !== id));
+}</code></pre>
+    <p>
+      In <code>app.jsx</code> we have a <code>Tasks</code> component-element
+      that passes a piece of state called <code>tasks</code> down to the
+      <code>Tasks</code> component. Further a prop called
+      <code>onDelete</code> is passed down with a reference to the function
+      <code>deleteTask</code> at the top level.
+    </p>
+    <pre><code>const[tasks, setTasks] = useState([
+    {
+      id: 1,
+      text: &quot;Doctor appt&quot;,
+      day: &quot;Feb 5th at 2:30pm&quot;,
+      reminder: true,
+    },
+    ...// Rest of the state.
+    ...// Other code in app.jsx
+
+    &lt;Tasks tasks={tasks} onDelete={deleteTask}/&gt;</code></pre>
+    <p>
+      In the <code>Tasks.jsx</code> component, the <code>tasks</code> state from
+      <code>app.jsx</code> is passed in as a prop and has a map run over it,
+      accessing each element of it in a temporary variable called
+      <code>task.</code> It creates a <code>Task</code> component-element for
+      each <code>task</code> in <code>prop.tasks</code>. You can see that the
+      <code>id</code>, <code>task</code> itself, and the
+      <code>onDelete</code> prop are passed down again. This
+      <code>props.onDelete</code> is a reference to the function at the top
+      level, getting passed down to a third level.
+    </p>
+    <pre><code>const Tasks = (props) =&gt; {
+  return (
+    &lt;&gt;
+      {props.tasks.map((task) =&gt; (
+        &lt;Task key={task.id} task={task} onDelete={props.onDelete} /&gt;
+      ))}
+    &lt;/&gt;
+  );
+};</code></pre>
+    <p>
+      At the bottom level in <code>Task.jsx</code> you can see the fields from
+      the <code>task</code> state at the top level being used with props. Also
+      you can see in the <code>FaTimes</code> element, which is a red-x icon,
+      there is an <code>onClick event</code> that wants to call the
+      <code>deleteTask</code> function at the top level, but it also wants to
+      pass an argument to it, <code>id</code>.
+      <strong
+        >To do this it needs to use an anon function that gives onDelete the
+        ability to have parens and thus arguments and pass props.task.id</strong
+      >.
+    </p>
+    <pre><code>const Task = (props) =&gt; {
+  return (
+    &lt;div className=&quot;task&quot;&gt;
+      &lt;h3&gt;
+        {props.task.text}{&quot; &quot;}
+        &lt;FaTimes
+          style={{ color: &quot;red&quot;, cursor: &quot;pointer&quot; }}
+          onClick={() =&gt; props.onDelete(props.task.id)}
+        /&gt;
+      &lt;/h3&gt;
+      &lt;p&gt;{props.task.day}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+    <p>
+      If you wanted to pass no arguments to the function, you could just
+      literally put the props variable <code>onDelete</code> there, as that is a
+      reference to the function anyway up the stream.
+      <em
+        >Note that by calling this function with no arguments, even though it is
+        expecting an id, it will use the <code>e</code> which is the object
+        info.</em
+      >
+    </p>
+    <pre><code>&lt;FaTimes
+          style={{ color: &quot;red&quot;, cursor: &quot;pointer&quot; }}
+          onClick={() =&gt; props.onDelete(props.task.id)} /&gt;</code></pre>
   </body>
 </html>
