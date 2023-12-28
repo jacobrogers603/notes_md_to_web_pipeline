@@ -52,6 +52,7 @@ title: "Notes Table of Contents"
     - [Tech Stack](notes/web_dev/techStack.html) ([md file](notes/web_dev/techStack.md))
     - Type Script
         - [Arrays And Loops](notes/web_dev/typeScript/arraysAndLoops.html) ([md file](notes/web_dev/typeScript/arraysAndLoops.md))
+        - [Conversions](notes/web_dev/typeScript/conversions.html) ([md file](notes/web_dev/typeScript/conversions.md))
         - [Functions](notes/web_dev/typeScript/functions.html) ([md file](notes/web_dev/typeScript/functions.md))
         - [Template Literals](notes/web_dev/typeScript/template_literals.html) ([md file](notes/web_dev/typeScript/template_literals.md))
         - [Variables](notes/web_dev/typeScript/variables.html) ([md file](notes/web_dev/typeScript/variables.md))
