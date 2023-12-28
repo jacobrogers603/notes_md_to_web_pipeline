@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mapping in react</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#map">Map</a>
+          <ul>
+            <li><a href="#example">example</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="map">Map</h1>
+    <p>We can use map() in react to make a list.</p>
+    <p>Map takes in a function and works on an array.</p>
+    <pre><code>let numbers = [1, 2, 3];
+let doubled = numbers.map((num) =&gt; num * 2); // [2, 4, 6]</code></pre>
+    <h2 id="example">example</h2>
+    <p>Assuming <code>tasks</code> is a list of objects as follows:</p>
+    <pre><code>{
+    id: 1,
+    text: &quot;Doctor appt&quot;,
+    day: &quot;Feb 5th at 2:30pm&quot;,
+    reminder: true,
+}, 
+...</code></pre>
+    <p>
+      You can use <code>map</code> to create a list of all the
+      <code>text</code> fields in the <code>tasks</code> list and put them in
+      <code>h3</code> tags.
+      <em>This is assumed to be in a component file called Tasks.</em>
+    </p>
+    <pre><code>const Tasks = () =&gt; {
+    return (
+        &lt;&gt;
+        {tasks.map((task) =&gt; (
+            &lt;h3 key={task.id}&gt;{task.text}&lt;/h3&gt;
+        ))}
+        &lt;/&gt;
+    );
+};</code></pre>
+    <p>
+      Back in <code>App.jsx</code> you can call the component and it will add
+      the printed list to the screen.
+    </p>
+    <pre><code>&lt;Tasks /&gt;</code></pre>
+  </body>
+</html>

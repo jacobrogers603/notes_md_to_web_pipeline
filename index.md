@@ -46,9 +46,12 @@ title: "Notes Table of Contents"
         - [Components](notes/web_dev/react/components.html) ([md file](notes/web_dev/react/components.md))
         - [Create A React App](notes/web_dev/react/create_a_react_app.html) ([md file](notes/web_dev/react/create_a_react_app.md))
         - [Dev Server](notes/web_dev/react/dev_server.html) ([md file](notes/web_dev/react/dev_server.md))
+        - [Events](notes/web_dev/react/events.html) ([md file](notes/web_dev/react/events.md))
         - [Jsx](notes/web_dev/react/jsx.html) ([md file](notes/web_dev/react/jsx.md))
+        - [Map](notes/web_dev/react/map.html) ([md file](notes/web_dev/react/map.md))
         - [Props](notes/web_dev/react/props.html) ([md file](notes/web_dev/react/props.md))
         - [React Overview](notes/web_dev/react/react_overview.html) ([md file](notes/web_dev/react/react_overview.md))
+        - [States](notes/web_dev/react/states.html) ([md file](notes/web_dev/react/states.md))
     - [Tech Stack](notes/web_dev/techStack.html) ([md file](notes/web_dev/techStack.md))
     - Type Script
         - [Arrays And Loops](notes/web_dev/typeScript/arraysAndLoops.html) ([md file](notes/web_dev/typeScript/arraysAndLoops.md))

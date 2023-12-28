@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>react events</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#events-in-react">Events in React</a>
+          <ul>
+            <li><a href="#onclick">onClick</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="events-in-react">Events in React</h1>
+    <h2 id="onclick">onClick</h2>
+    <p>Can use onClick for a button for example.</p>
+    <p>
+      Here a button calls, when it is clicked, a const variable that is assigned
+      to an anon function that prints to the log.
+      <em
+        >By using <strong>e</strong> you can print all information about that
+        object to the log if you want.</em
+      >
+    </p>
+    <pre><code>  const onClick = (e) =&gt; {
+    console.log(e);
+  };
+
+  return (
+    &lt;button
+      onClick={onClick}
+      style={{backgroundColor: props.color}}
+      className=&quot;btn&quot;&gt;
+      {props.text}
+    &lt;/button&gt;
+  );</code></pre>
+  </body>
+</html>

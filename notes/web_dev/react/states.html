@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>States</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li><a href="#states">states</a></li>
+        <li>
+          <a href="#the-usestate-hook-in-react">The useState hook in React</a>
+          <ul>
+            <li>
+              <a href="#example-of-usage">Example of Usage</a>
+              <ul>
+                <li><a href="#updating-state">updating state</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="states">states</h1>
+    <p>
+      You want states to be at the top level (app.jsx) when you need them to be
+      accessible by multiple components.
+    </p>
+    <h1 id="the-usestate-hook-in-react">The useState hook in React</h1>
+    <p>
+      If you want a variable to not be separate from a component / part of its
+      state, use the hook useState.
+      <strong>Declare this inside of the component’s function.</strong>
+    </p>
+    <h2 id="example-of-usage">Example of Usage</h2>
+    <p>Need to import</p>
+    <pre><code>import { useState } from &#39;react&#39;</code></pre>
+    <p>
+      Declare a <code>const</code> with brackets with:
+      <code>[name of the state, function to update the state]</code>, set equal
+      to <code>useState(&lt;default state value&gt;)</code> with the default
+      state value as the argument.
+      <em>In this case the default state is an array of objects.</em>
+    </p>
+    <pre><code>const[tasks, setTasks] = useState({
+    id: 1,
+    text: &quot;Doctor appt&quot;,
+    day: &quot;Feb 5th at 2:30pm&quot;,
+    reminder: true,
+}, 
+...
+)</code></pre>
+    <p>
+      This would be
+      <strong>done inside of the component’s function.</strong> const Tasks = ()
+      =&gt; { //hook code…
+    </p>
+    <pre><code>return (
+    &lt;&gt;
+    {tasks.map((task) =&gt; (
+        &lt;h3 key={task.id}&gt;{task.text}&lt;/h3&gt;
+    ))}
+    &lt;/&gt;
+  );
+};</code></pre>
+    <h3 id="updating-state">updating state</h3>
+    <p>
+      To update a state call the second parameter you named and pass in the new
+      state.
+    </p>
+    <pre><code>setTasks({new obj})</code></pre>
+    <p>If you want to append something new to what is already in that state:</p>
+    <pre><code>setTasks([...&lt;nameOfState&gt;, &lt;new data&gt;])</code></pre>
+    <p>In our example:</p>
+    <pre><code>setTasks([...tasks, {new object}])</code></pre>
+  </body>
+</html>
