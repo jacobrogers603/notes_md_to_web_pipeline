@@ -89,5 +89,37 @@ If you wanted to pass no arguments to the function, you could just literally put
 ```
 <FaTimes
           style={{ color: "red", cursor: "pointer" }}
-          onClick={() => props.onDelete(props.task.id)} />
+          onClick={props.onDelete} />
 ```
+## On Double Click
+
+Note that there exists an `onDoubleClick` event you can call in elements.
+
+## on change used with <input>
+
+Example using onChange and the input element. 
+
+This is an example of a `controlled component`: an input element (like <input>, <textarea>, or <select>) that derives its value from the component's state. 
+
+Here there is a `form` where multiple `div`s exist that contain a `label` and an `input`. 
+The fields of the input are 
+- type, which can be text or checkbox or etc, 
+- placeholder which determines the text there before the user types,
+- `value` which sets its current value, in this example it is set to the name of a state
+- `onChange` is fed a anon function that takes e (event) and passes to the function that updates the text's state. It passes **e.target.value** which is whatever is typed into that input field.
+
+```
+<form className="add-form">
+      <div className="form-control">
+        <label>Task</label>
+        <input
+          type="text"
+          placeholder="Add Task"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+      </div>
+      ...
+```
+
+*If you want to get the current state of a checkbox, instead of a text field, use `e.currentTarget.checked`*
