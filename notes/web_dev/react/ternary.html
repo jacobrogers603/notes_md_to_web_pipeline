@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ternary in react</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#ternary-in-react-general-in-line-conditionals"
+            >Ternary in React / general in line conditionals</a
+          >
+          <ul>
+            <li>
+              <a href="#shorthand-ternary-empty-else"
+                >Shorthand ternary empty else</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="ternary-in-react-general-in-line-conditionals">
+      Ternary in React / general in line conditionals
+    </h1>
+    <p>
+      Say for example we have in app.jsx at the top level that is displaying a
+      Task component on the screen:
+    </p>
+    <pre><code>&lt;Tasks tasks={tasks} onDelete={deleteTask}/&gt;</code></pre>
+    <p>
+      But what if we want to check if the tasks list is empty and if it is empty
+      display a message instead of a task component?
+      <strong
+        >We can embed the entire life in curly braces and make it a ternary
+        statement</strong
+      >:
+    </p>
+    <pre><code>{tasks.length &gt; 0 ? (&lt;Tasks tasks={tasks} onDelete={deleteTask}/&gt;) : (&#39;No Tasks to Display&#39;)}</code></pre>
+    <h2 id="shorthand-ternary-empty-else">Shorthand ternary empty else</h2>
+    <p>
+      If you want the shorthand to write a ternary that does nothing in the else
+      case, use <strong>&amp;&amp;</strong>.
+    </p>
+    <p>For example, using the &amp;&amp; syntax:</p>
+    <pre><code>// If isLoggedIn is true, render Welcome component; otherwise, do nothing
+return (
+isLoggedIn &amp;&amp; &lt;Welcome /&gt;
+);</code></pre>
+    <p>And the counterpart example using the traditional syntax:</p>
+    <pre><code>// If isLoggedIn is true, render Welcome component; otherwise, do nothing
+return (
+isLoggedIn ? &lt;Welcome /&gt; : null
+);</code></pre>
+  </body>
+</html>
