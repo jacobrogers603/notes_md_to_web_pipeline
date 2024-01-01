@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON server</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#json-server">JSON Server</a>
+          <ul>
+            <li><a href="#steps-to-setup">Steps to setup</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="json-server">JSON Server</h1>
+    <p>
+      Allows us to create a mock <a href="../REST_API.html">rest api</a> with
+      our own data.
+    </p>
+    <h2 id="steps-to-setup">Steps to setup</h2>
+    <pre><code>npm install json-server</code></pre>
+    <p>create a <code>db.json</code> file with some data</p>
+    <p>then start server</p>
+    <pre><code>json-server --watch db.json --port 5000</code></pre>
+    <p>Then if you go to <code>http://localhost:5000/posts/1</code></p>
+    <p>Then run your react dev server</p>
+    <p>Don’t run it on the same port as the dev server</p>
+  </body>
+</html>

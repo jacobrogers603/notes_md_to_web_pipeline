@@ -8,6 +8,7 @@ title: "Notes Table of Contents"
     - [Maslow App](notes/ideas/maslowApp.html) ([md file](notes/ideas/maslowApp.md))
 - Web Dev
     - [DOM Overview](notes/web_dev/DOM_overview.html) ([md file](notes/web_dev/DOM_overview.md))
+    - [REST API](notes/web_dev/REST_API.html) ([md file](notes/web_dev/REST_API.md))
     - Css Html
         - [Css Text](notes/web_dev/css_html/css_Text.html) ([md file](notes/web_dev/css_html/css_Text.md))
         - [Css Alignment](notes/web_dev/css_html/css_alignment.html) ([md file](notes/web_dev/css_html/css_alignment.md))
@@ -43,6 +44,7 @@ title: "Notes Table of Contents"
         - [Text Area](notes/web_dev/css_html/textArea.html) ([md file](notes/web_dev/css_html/textArea.md))
     - [Frameworks](notes/web_dev/frameworks.html) ([md file](notes/web_dev/frameworks.md))
     - React
+        - [JSON Server](notes/web_dev/react/JSON_server.html) ([md file](notes/web_dev/react/JSON_server.md))
         - [Building For Production](notes/web_dev/react/building_for_production.html) ([md file](notes/web_dev/react/building_for_production.md))
         - [Components](notes/web_dev/react/components.html) ([md file](notes/web_dev/react/components.md))
         - [Create A React App](notes/web_dev/react/create_a_react_app.html) ([md file](notes/web_dev/react/create_a_react_app.md))
@@ -52,11 +54,13 @@ title: "Notes Table of Contents"
         - [Map](notes/web_dev/react/map.html) ([md file](notes/web_dev/react/map.md))
         - [Props](notes/web_dev/react/props.html) ([md file](notes/web_dev/react/props.md))
         - [React Overview](notes/web_dev/react/react_overview.html) ([md file](notes/web_dev/react/react_overview.md))
+        - [Routing](notes/web_dev/react/routing.html) ([md file](notes/web_dev/react/routing.md))
         - [States](notes/web_dev/react/states.html) ([md file](notes/web_dev/react/states.md))
         - [Ternary](notes/web_dev/react/ternary.html) ([md file](notes/web_dev/react/ternary.md))
     - [Tech Stack](notes/web_dev/techStack.html) ([md file](notes/web_dev/techStack.md))
     - Type Script
         - [Arrays And Loops](notes/web_dev/typeScript/arraysAndLoops.html) ([md file](notes/web_dev/typeScript/arraysAndLoops.md))
+        - [Async](notes/web_dev/typeScript/async.html) ([md file](notes/web_dev/typeScript/async.md))
         - [Conversions](notes/web_dev/typeScript/conversions.html) ([md file](notes/web_dev/typeScript/conversions.md))
         - [Functions](notes/web_dev/typeScript/functions.html) ([md file](notes/web_dev/typeScript/functions.md))
         - [Spread Operator](notes/web_dev/typeScript/spreadOperator.html) ([md file](notes/web_dev/typeScript/spreadOperator.md))

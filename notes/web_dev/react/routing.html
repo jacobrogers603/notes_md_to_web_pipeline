@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>routing in react</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#routing-in-react-multiple-pages"
+            >Routing in react (multiple pages)</a
+          >
+          <ul>
+            <li><a href="#example">Example</a></li>
+            <li><a href="#how-to-know-location">How to know location</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="routing-in-react-multiple-pages">
+      Routing in react (multiple pages)
+    </h1>
+    <pre><code>npm install react-router-dom
+
+import { BrowserRouter as Router, Route } from &quot;react-router-dom&quot;;</code></pre>
+    <p>
+      You can route to difference pages by wrapping sections of your jsx code in
+      app.jsx in the BrowserRouter tag, and Router tag.
+    </p>
+    <h2 id="example">Example</h2>
+    <pre><code>return (
+    &lt;Router&gt;
+      &lt;div className=&quot;container&quot;&gt;
+        &lt;Header
+          onAdd={() =&gt; setShowAddTask(!showAddTask)}
+          showAdd={showAddTask}
+          title=&quot;Ваши задачи&quot;
+        /&gt;
+
+        &lt;Route
+          path=&quot;/&quot;
+          exact
+          render={(props) =&gt; (
+            &lt;&gt;
+              {showAddTask ? &lt;AddTask onAdd={addTask} /&gt; : null}
+              {tasks.length &gt; 0 ? (
+                &lt;Tasks
+                  tasks={tasks}
+                  onDelete={deleteTask}
+                  onToggle={toggleReminder}
+                /&gt;
+              ) : (
+                &quot;No Tasks to Display&quot;
+              )}
+            &lt;/&gt;
+          )}
+        /&gt;
+        &lt;Route path=&quot;/about&quot; component={About} /&gt;
+        &lt;Footer /&gt;
+      &lt;/div&gt;
+    &lt;/Router&gt;
+);</code></pre>
+    <p>If you don’t want page to reload upon routing, use</p>
+    <pre><code>import {Link} from &#39;react-router-dom&#39;;</code></pre>
+    <p>and the Link tag with to instead of href.</p>
+    <h2 id="how-to-know-location">How to know location</h2>
+    <p>TO know the location / route we are currently on:</p>
+    <pre><code>import {useLocation} from &quot;react-router-dom&quot;;
+
+const location = useLocation();
+
+location.pathname == ...</code></pre>
+  </body>
+</html>

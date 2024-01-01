@@ -27,6 +27,16 @@
             </li>
           </ul>
         </li>
+        <li>
+          <a href="#useeffect-hook">useEffect hook</a>
+          <ul>
+            <li>
+              <a href="#example-usage-of-useeffect"
+                >example usage of useEffect</a
+              >
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <h1 id="states">states</h1>
@@ -81,5 +91,66 @@
     <pre><code>setTasks([...&lt;nameOfState&gt;, &lt;new data&gt;])</code></pre>
     <p>In our example:</p>
     <pre><code>setTasks([...tasks, {new object}])</code></pre>
+    <h1 id="useeffect-hook">useEffect hook</h1>
+    <p>
+      Lets you perform side effects in function components. It is used for
+      operations like data fetching, subscriptions, or manually changing the DOM
+      that don’t fit into the render flow.
+      <strong>useEffect runs after every render by default</strong>, but you can
+      customize it to run only when certain values have changed.
+    </p>
+    <p>
+      Often used if you want something to happen right away when the page loads.
+    </p>
+    <p>
+      The first argument is a function that contains the side effect logic. The
+      second argument is an optional array of dependencies. useEffect runs after
+      the initial render and after every update where the specified dependencies
+      have changed.
+    </p>
+    <pre><code>useEffect(() =&gt; {
+// Side effect operations
+}, [dependencies]);</code></pre>
+    <p>Common scenarios for useEffect include:</p>
+    <ol type="1">
+      <li>
+        Fetching Data: Run once when the component mounts or when certain data
+        changes.
+      </li>
+      <li>
+        Subscriptions/Listeners: Set up on mount and clean up before unmounting
+        or on update.
+      </li>
+      <li>
+        Reacting to Prop or State Changes: Execute code in response to changing
+        props or state.
+      </li>
+    </ol>
+    <h2 id="example-usage-of-useeffect">example usage of useEffect</h2>
+    <pre><code>import {useEffect} from &#39;react&#39;;</code></pre>
+    <p>
+      This code is using the useEffect hook to preform a side effect. The empty
+      dependency array at the end means it runs once after the initial render.
+    </p>
+    <p>
+      <strong>fetch</strong> is used to make a <strong>GET</strong> request to
+      the URL provided, which is a server with JSON data on it. It awaits until
+      the fetch is complete and the promise settles, that data is stored in the
+      res variable.
+    </p>
+    <p>
+      <strong>res.json()</strong> converts the response from the server into
+      JSON format.
+    </p>
+    <pre><code>useEffect(() =&gt; {
+    const fetchTasks = async () =&gt; {
+        const res = await fetch(&#39;http://localhost:5000/tasks);
+
+        const data = await res.json();
+        console.log(data);
+    }
+
+    fetchTasks();
+}, []);</code></pre>
   </body>
 </html>

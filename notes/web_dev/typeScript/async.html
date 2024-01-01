@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>async in ts / js</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li><a href="#async">Async</a></li>
+      </ul>
+    </nav>
+    <h1 id="async">Async</h1>
+    <p>
+      <code>async</code> is a keyword used to declare a function as
+      asynchronous, allowing you to use <code>await</code> within it to pause
+      the execution until a <code>Promise</code> is resolved.
+    </p>
+    <p>
+      <strong
+        >used for operations like API calls, timeouts, and any other tasks that
+        depend on execution time or external data.</strong
+      >
+    </p>
+    <p>
+      Async Function: When you put <code>async</code> before a function
+      definition, it becomes an async function. This function returns a Promise.
+    </p>
+    <pre><code>async function fetchData() {
+    // Function body
+}</code></pre>
+    <p>
+      Await Keyword: Inside async functions, you can use
+      <code>await</code> before a function that returns a Promise. It makes
+      JavaScript wait until that promise settles and returns its result.
+    </p>
+    <pre><code>async function fetchData() {
+    let data = await someAsyncCall();
+    console.log(data); // Waits for someAsyncCall to resolve and prints the result.
+}</code></pre>
+    <p>
+      Error Handling: Typically combined with try/catch for handling rejected
+      promises.
+    </p>
+    <pre><code>async function fetchData() {
+    try {
+        let data = await someAsyncCall();
+        console.log(data);
+    } catch (error) {
+        console.error(&quot;An error occurred:&quot;, error);
+    }
+}</code></pre>
+  </body>
+</html>
