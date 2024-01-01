@@ -13,7 +13,7 @@ title: "React Overview"
 
 # Problems that React solves
 
-- **virtual DOM**: is used by react which is a lightweight copy of the actual [DOM](../DOM_overview.md). This makes updating the DOM faster. Allows you to update parts of the page without reloading the page.
+- **virtual DOM**: is used by react which is a lightweight copy of the actual [DOM](../DOM_overview.html). This makes updating the DOM faster. Allows you to update parts of the page without reloading the page.
 - **reusable comps**: Fixes problems of redundancy.
 - **state management**: keeps ui in sync with everything
 - **JSX**: allows you to write code that is formatted like html but is actually js

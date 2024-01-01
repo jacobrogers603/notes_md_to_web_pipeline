@@ -41,7 +41,7 @@ These are your other basic needs that cannot be taken care of until after the fi
 
 While we are putting most of our focus on the financial security aspect, which is great, because it is the first ❌ we see, where the need is essentially mostly not met at all, where all other deficiencies are of the 〰️ category where they are met to a good enough degree to move past them, but they are still dragging us down by not being fully complete. There are easy targets in the first category of basic needs that we should focus on getting to the ✅ category fully such that we can attack the financial security category with much more efficiency and vigor.
 
-My plan for financial security is known [web dev](2_webDevPlans.md).
+My plan for financial security is known [web dev](2_webDevPlans.html).
 
 ### 3. Belongingness and Love (psychological need)    
 
