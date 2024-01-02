@@ -22,6 +22,8 @@
           <ul>
             <li><a href="#example">Example</a></li>
             <li><a href="#how-to-know-location">How to know location</a></li>
+            <li><a href="#list-of-elements">list of elements</a></li>
+            <li><a href="#params">params</a></li>
           </ul>
         </li>
       </ul>
@@ -29,49 +31,67 @@
     <h1 id="routing-in-react-multiple-pages">
       Routing in react (multiple pages)
     </h1>
-    <pre><code>npm install react-router-dom
-
-import { BrowserRouter as Router, Route } from &quot;react-router-dom&quot;;</code></pre>
+    <p>Install the package: <code>npm install react-router-dom</code></p>
+    <p>Import the libraries needed:</p>
+    <p>import { BrowserRouter, Route, Routes } from “react-router-dom”;</p>
     <p>
       You can route to difference pages by wrapping sections of your jsx code in
-      app.jsx in the BrowserRouter tag, and Router tag.
+      <code>&lt;BrowserRouter&gt;</code> and then in
+      <code>&lt;Routes&gt;</code>. Then you can define specific routes by saying
+      <code
+        >&lt;Route path=&quot;/myPathForURL&quot; element={jsx code to render
+        when at this route}</code
+      >.
     </p>
     <h2 id="example">Example</h2>
+    <p><code>app.jsx:</code></p>
     <pre><code>return (
-    &lt;Router&gt;
+    &lt;BrowserRouter&gt;
       &lt;div className=&quot;container&quot;&gt;
         &lt;Header
           onAdd={() =&gt; setShowAddTask(!showAddTask)}
           showAdd={showAddTask}
           title=&quot;Ваши задачи&quot;
         /&gt;
-
-        &lt;Route
-          path=&quot;/&quot;
-          exact
-          render={(props) =&gt; (
-            &lt;&gt;
-              {showAddTask ? &lt;AddTask onAdd={addTask} /&gt; : null}
-              {tasks.length &gt; 0 ? (
-                &lt;Tasks
-                  tasks={tasks}
-                  onDelete={deleteTask}
-                  onToggle={toggleReminder}
-                /&gt;
-              ) : (
-                &quot;No Tasks to Display&quot;
-              )}
-            &lt;/&gt;
-          )}
-        /&gt;
-        &lt;Route path=&quot;/about&quot; component={About} /&gt;
+        &lt;Routes&gt;
+          &lt;Route
+            path=&quot;/&quot;
+            element={
+              &lt;&gt;
+                {showAddTask ? &lt;AddTask onAdd={addTask} /&gt; : null}
+                {tasks.length &gt; 0 ? (
+                  &lt;Tasks
+                    tasks={tasks}
+                    onDelete={deleteTask}
+                    onToggle={toggleReminder}
+                  /&gt;
+                ) : (
+                  &quot;No Tasks to Display&quot;
+                )}
+              &lt;/&gt;
+            }
+          /&gt;
+          &lt;Route path=&quot;/about&quot; element={&lt;About /&gt;} /&gt;
+        &lt;/Routes&gt;
         &lt;Footer /&gt;
       &lt;/div&gt;
-    &lt;/Router&gt;
-);</code></pre>
+    &lt;/BrowserRouter&gt;
+  );</code></pre>
+    <p><code>about.jsx</code>:</p>
+    <pre><code>import {Link} from &#39;react-router-dom&#39;;
+
+const About = () =&gt; {
+  return (
+    &lt;div&gt;
+        &lt;h4&gt;Version 1.0.0&lt;/h4&gt;
+        &lt;Link to=&quot;/&quot;&gt;Home&lt;/Link&gt;
+    &lt;/div&gt;
+  )
+}
+export default About</code></pre>
     <p>If you don’t want page to reload upon routing, use</p>
     <pre><code>import {Link} from &#39;react-router-dom&#39;;</code></pre>
-    <p>and the Link tag with to instead of href.</p>
+    <p><strong>and the Link tag with to instead of a with href.</strong></p>
     <h2 id="how-to-know-location">How to know location</h2>
     <p>TO know the location / route we are currently on:</p>
     <pre><code>import {useLocation} from &quot;react-router-dom&quot;;
@@ -79,5 +99,15 @@ import { BrowserRouter as Router, Route } from &quot;react-router-dom&quot;;</co
 const location = useLocation();
 
 location.pathname == ...</code></pre>
+    <h2 id="list-of-elements">list of elements</h2>
+    <ul>
+      <li>BrowserRouter: wraps the application’s routing</li>
+      <li>Route: define different routes</li>
+      <li>Link: navigates to routes</li>
+      <li>Switch: renders the first matching route</li>
+    </ul>
+    <h2 id="params">params</h2>
+    <p>You can pass params with routes like http://website/page/id</p>
+    <p>use useNavigate</p>
   </body>
 </html>
