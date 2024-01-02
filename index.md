@@ -43,6 +43,9 @@ title: "Notes Table of Contents"
         - Resources
         - [Text Area](notes/web_dev/css_html/textArea.html) ([md file](notes/web_dev/css_html/textArea.md))
     - [Frameworks](notes/web_dev/frameworks.html) ([md file](notes/web_dev/frameworks.md))
+    - Projects
+        - Mark My Words
+            - [Design Doc](notes/web_dev/projects/markMyWords/designDoc.html) ([md file](notes/web_dev/projects/markMyWords/designDoc.md))
     - React
         - [JSON Server](notes/web_dev/react/JSON_server.html) ([md file](notes/web_dev/react/JSON_server.md))
         - [Building For Production](notes/web_dev/react/building_for_production.html) ([md file](notes/web_dev/react/building_for_production.md))
