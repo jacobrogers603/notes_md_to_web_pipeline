@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mark my words design document</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#mark-my-words-design-document"
+            >Mark My Words Design Document</a
+          >
+          <ul>
+            <li>
+              <a href="#overall-function-purpose">Overall function / Purpose</a>
+            </li>
+            <li>
+              <a href="#pages">Pages</a>
+              <ul>
+                <li><a href="#landing-page">Landing page</a></li>
+                <li>
+                  <a href="#login-register-page">Login || register page</a>
+                </li>
+                <li><a href="#profile-page">Profile page</a></li>
+                <li><a href="#note-editor-page">Note Editor page</a></li>
+                <li><a href="#search-users-page">Search users page</a></li>
+                <li>
+                  <a href="#nav-bar-on-all-pages">Nav bar (on all pages)</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#technologies">Technologies</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="mark-my-words-design-document">Mark My Words Design Document</h1>
+    <h2 id="overall-function-purpose">Overall function / Purpose</h2>
+    <p>
+      This web-app will allow users to write notes in md format and have it be
+      automatically converted to HTML and published to their profile as either
+      public or private. Its secondary purpose is to act as a portfolio project
+      that demonstrates that I can create full-stack app using React, TS,
+      Tailwind, and other technologies.
+    </p>
+    <h2 id="pages">Pages</h2>
+    <h3 id="landing-page">Landing page</h3>
+    <p>
+      The public homepage for the app. This has a: - logo, - maybe some art /
+      screenshots of it working, - an explanation of what it does, - a login /
+      register option, - a profile search to find other users’ public profiles
+    </p>
+    <h3 id="login-register-page">Login || register page</h3>
+    <p>A basic login or registration page.</p>
+    <h3 id="profile-page">Profile page</h3>
+    <p>
+      A page that is the user’s profile page that has: - their table of contents
+      (TOC) of notes &amp; directories - The TOC should be editable by drag and
+      drop and maintain order via an internal ID - An edit icon to edit the note
+      - upload button to upload md documents to the site and drop them at the
+      top of the TOC. - their bio. - profile photo - task board above their full
+      TOC that contains pinned notes - options menu as well for settings, if
+      applicable.
+    </p>
+    <p>
+      The visibility of elements on this page would depend on whether they were
+      marked private or not and if the viewer has access to see them.
+    </p>
+    <h3 id="note-editor-page">Note Editor page</h3>
+    <p>
+      This page will be where the user writes a new note. It will consist of a:
+      - background area where they type the note, - a tool bar at the top to
+      control formatting (would auto insert md symbols ie ** for bold text) - A
+      title field (gets auto filled with the first heading 1 it sees, #, if not
+      manually typed in) - A save &amp; publish button - A save as draft option
+      - A public / Private switch button
+    </p>
+    <h3 id="search-users-page">Search users page</h3>
+    <p>
+      A page to search all users on the site and generate a list of results of
+      names, if a name is clicked it routes to their profile
+    </p>
+    <h3 id="nav-bar-on-all-pages">Nav bar (on all pages)</h3>
+    <ul>
+      <li>
+        Home button / icon, will route to landing page if not logged in, else to
+        profile page
+      </li>
+      <li>search bar to find your notes</li>
+      <li>search users button (will route to search page)</li>
+    </ul>
+    <h2 id="technologies">Technologies</h2>
+    <ul>
+      <li>React</li>
+      <li>TS</li>
+      <li>Tailwind</li>
+      <li>SQL?</li>
+      <li>Authentication</li>
+      <li>linode</li>
+    </ul>
+  </body>
+</html>
