@@ -8,6 +8,10 @@ title: "Notes Table of Contents"
     - [Maslow App](notes/ideas/maslowApp.html) ([md file](notes/ideas/maslowApp.md))
 - Web Dev
     - [DOM Overview](notes/web_dev/DOM_overview.html) ([md file](notes/web_dev/DOM_overview.md))
+    - Next JS
+        - [Initalizing In A Project](notes/web_dev/Next JS/Initalizing_in_a_project.html) ([md file](notes/web_dev/Next JS/Initalizing_in_a_project.md))
+        - [Overview](notes/web_dev/Next JS/overview.html) ([md file](notes/web_dev/Next JS/overview.md))
+        - [Routing](notes/web_dev/Next JS/routing.html) ([md file](notes/web_dev/Next JS/routing.md))
     - [REST API](notes/web_dev/REST_API.html) ([md file](notes/web_dev/REST_API.md))
     - Css Html
         - [Css Text](notes/web_dev/css_html/css_Text.html) ([md file](notes/web_dev/css_html/css_Text.md))
@@ -43,6 +47,9 @@ title: "Notes Table of Contents"
         - Resources
         - [Text Area](notes/web_dev/css_html/textArea.html) ([md file](notes/web_dev/css_html/textArea.md))
     - [Frameworks](notes/web_dev/frameworks.html) ([md file](notes/web_dev/frameworks.md))
+    - Prisma
+        - [Basics](notes/web_dev/prisma/basics.html) ([md file](notes/web_dev/prisma/basics.md))
+        - [Prisma Overview](notes/web_dev/prisma/prisma_overview.html) ([md file](notes/web_dev/prisma/prisma_overview.md))
     - Projects
         - Mark My Words
             - [Design Doc](notes/web_dev/projects/markMyWords/designDoc.html) ([md file](notes/web_dev/projects/markMyWords/designDoc.md))
@@ -60,6 +67,8 @@ title: "Notes Table of Contents"
         - [Routing](notes/web_dev/react/routing.html) ([md file](notes/web_dev/react/routing.md))
         - [States](notes/web_dev/react/states.html) ([md file](notes/web_dev/react/states.md))
         - [Ternary](notes/web_dev/react/ternary.html) ([md file](notes/web_dev/react/ternary.md))
+    - Tailwind
+        - [Adding To AReact Project](notes/web_dev/tailwind/addingToAReactProject.html) ([md file](notes/web_dev/tailwind/addingToAReactProject.md))
     - [Tech Stack](notes/web_dev/techStack.html) ([md file](notes/web_dev/techStack.md))
     - Type Script
         - [Arrays And Loops](notes/web_dev/typeScript/arraysAndLoops.html) ([md file](notes/web_dev/typeScript/arraysAndLoops.md))

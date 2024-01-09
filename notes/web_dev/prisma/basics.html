@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prisma basics</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#prisma-basics">prisma basics</a>
+          <ul>
+            <li><a href="#schema">Schema</a></li>
+            <li><a href="#starting-steps">starting steps</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1 id="prisma-basics">prisma basics</h1>
+    <h2 id="schema">Schema</h2>
+    <p>
+      A schema, in the context of databases, is a way to organize and structure
+      data. It defines how data is stored, arranged, and managed within a
+      database. A schema typically includes:
+    </p>
+    <ol type="1">
+      <li>
+        <strong>Tables</strong>: Define where and how data is stored, with rows
+        and columns.
+      </li>
+      <li>
+        <strong>Fields/Columns</strong>: Specify types of data (like text,
+        numbers, dates) and their constraints.
+      </li>
+      <li>
+        <strong>Relationships</strong>: Show how tables are linked to each
+        other.
+      </li>
+      <li>
+        <strong>Constraints</strong>: Rules to ensure data integrity (e.g.,
+        primary keys, foreign keys).
+      </li>
+      <li>
+        <strong>Indexes</strong>: Improve search performance on the database.
+      </li>
+    </ol>
+    <p>
+      In programming, a schema can also refer to a formal way to describe the
+      shape and structure of JSON or XML data, like JSON Schema or XML Schema.
+    </p>
+    <h2 id="starting-steps">starting steps</h2>
+    <ol type="1">
+      <li>npx prisma init</li>
+    </ol>
+    <p>you will have this:</p>
+    <pre><code>generator client {
+provider = &quot;prisma-client-js&quot;
+}
+
+datasource db {
+provider = &quot;postgresql&quot;
+url      = env(&quot;DATABASE_URL&quot;)
+}</code></pre>
+    <ol start="2" type="1">
+      <li>Change the provider to mongodb or whatever you’re using</li>
+      <li>
+        <code>npm install @prisma/client</code> and make a new dir called
+        <code>lib</code>
+      </li>
+    </ol>
+  </body>
+</html>
