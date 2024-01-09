@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>models</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+        <nav id="TOC"><ul>
+<li><a href="#models-prisma-using-mongodb-format">Models (prisma using mongoDB format)</a><ul>
+<li><a href="#push">push</a></li>
+</ul></li>
+</ul></nav>
+     <h1 id="models-prisma-using-mongodb-format">Models (prisma using mongoDB format)</h1>
+<p>In <code>schema.prisma</code> you create models.</p>
+<p>Every model must start with an ID!</p>
+<p>Here is an example model:</p>
+<pre><code>model User {
+    // This line is required in every model!
+    id String @id @default(auto()) @map(&quot;_id&quot;) @db.ObjectId
+    name String
+    // ? means it is optional
+    image String?
+    // @unique ensures it is unique
+    email String? @unique
+    emailVerified DateTime?
+    hashedPassword String?
+    // @default sets the default value, now() sets it to the current time.
+    createdAt DateTime @default(now())
+    // @updatedAt sets it to the time when it was last updated
+    updatedAt DateTime @updatedAt
+
+    favoriteIds String[] @db.ObjectId</code></pre>
+<p><em><span class="citation" data-cites="db.ObjectId">@db.ObjectId</span>: This is a Prisma-specific annotation indicating the type of data stored in the field. In MongoDB, an ObjectId is a 12-byte unique identifier, often used as a primary key. This annotation tells Prisma that each string in the favoriteIds array should be treated as a MongoDB ObjectId.</em></p>
+<h2 id="push">push</h2>
+<p>once you write your models in the schema.prisma file run:</p>
+<pre><code>npx prisma db push</code></pre>
+  </body>
+</html>

@@ -47,9 +47,13 @@ title: "Notes Table of Contents"
         - Resources
         - [Text Area](notes/web_dev/css_html/textArea.html) ([md file](notes/web_dev/css_html/textArea.md))
     - [Frameworks](notes/web_dev/frameworks.html) ([md file](notes/web_dev/frameworks.md))
+    - Next Auth
+        - [Basics](notes/web_dev/nextAuth/basics.html) ([md file](notes/web_dev/nextAuth/basics.md))
     - Prisma
-        - [Basics](notes/web_dev/prisma/basics.html) ([md file](notes/web_dev/prisma/basics.md))
-        - [Prisma Overview](notes/web_dev/prisma/prisma_overview.html) ([md file](notes/web_dev/prisma/prisma_overview.md))
+    - Prisma Using Mongo DB
+        - [Basics](notes/web_dev/prisma using mongoDB/basics.html) ([md file](notes/web_dev/prisma using mongoDB/basics.md))
+        - [Models](notes/web_dev/prisma using mongoDB/models.html) ([md file](notes/web_dev/prisma using mongoDB/models.md))
+        - [Prisma Overview](notes/web_dev/prisma using mongoDB/prisma_overview.html) ([md file](notes/web_dev/prisma using mongoDB/prisma_overview.md))
     - Projects
         - Mark My Words
             - [Design Doc](notes/web_dev/projects/markMyWords/designDoc.html) ([md file](notes/web_dev/projects/markMyWords/designDoc.md))

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prisma basics</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+        <nav id="TOC"><ul>
+<li><a href="#prisma-basics">prisma basics</a><ul>
+<li><a href="#schema">Schema</a></li>
+<li><a href="#starting-steps">starting steps</a></li>
+</ul></li>
+</ul></nav>
+     <h1 id="prisma-basics">prisma basics</h1>
+<h2 id="schema">Schema</h2>
+<p>A schema, in the context of databases, is a way to organize and structure data. It defines how data is stored, arranged, and managed within a database. A schema typically includes:</p>
+<ol type="1">
+<li><strong>Tables</strong>: Define where and how data is stored, with rows and columns.</li>
+<li><strong>Fields/Columns</strong>: Specify types of data (like text, numbers, dates) and their constraints.</li>
+<li><strong>Relationships</strong>: Show how tables are linked to each other.</li>
+<li><strong>Constraints</strong>: Rules to ensure data integrity (e.g., primary keys, foreign keys).</li>
+<li><strong>Indexes</strong>: Improve search performance on the database.</li>
+</ol>
+<p>In programming, a schema can also refer to a formal way to describe the shape and structure of JSON or XML data, like JSON Schema or XML Schema.</p>
+<h2 id="starting-steps">starting steps</h2>
+<ol type="1">
+<li>npx prisma init</li>
+</ol>
+<p>you will have this:</p>
+<pre><code>generator client {
+provider = &quot;prisma-client-js&quot;
+}
+
+datasource db {
+provider = &quot;postgresql&quot;
+url      = env(&quot;DATABASE_URL&quot;)
+}</code></pre>
+<ol start="2" type="1">
+<li>Change the provider to mongodb or whatever you’re using</li>
+<li><code>npm install @prisma/client</code> and make a new dir called <code>lib</code> and create a new file there <code>prismadb.ts</code></li>
+<li><p>In that file put:</p>
+<p>import { PrismaClient } from “<span class="citation" data-cites="prisma/client">@prisma/client</span>”;</p>
+<p>const client = global.prismadb || new PrismaClient();</p>
+<p>if (process.env.NODE_ENV === ‘production’){ global.prismadb = client; }</p>
+<p>export default client;</p></li>
+<li><p>create a new file in the root dir <code>global.d.ts</code> and put:</p>
+<p>import {PrismaClient} from ‘<span class="citation" data-cites="prisma/client">@prisma/client</span>’;</p>
+<p>declare global { namespace globalThis { var prismadb: PrismaClient } }</p></li>
+</ol>
+<p><em>We do steps 4 and 5 because of nextJS hot reloading (on every code change our code updates and re-runs). Without the above code there would be a bunch of prisma instances made, this stops that because global files do not reload.</em></p>
+<ol start="6" type="1">
+<li>atlas</li>
+</ol>
+<p>use mongodb.com atlas to make a db</p>
+<p><strong>when connecting to the db select the VSC option to get the DATABASE_URL you need for the <code>.env</code> file</strong> <em>make sure to replace the <code>password</code> with your password in the url and to put the name of the database on the end of the url</em></p>
+  </body>
+</html>
