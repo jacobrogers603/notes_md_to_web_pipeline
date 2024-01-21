@@ -76,6 +76,7 @@ title: "Notes Table of Contents"
     - Tailwind
         - [Adding To AReact Project](notes/web_dev/tailwind/addingToAReactProject.html) ([md file](notes/web_dev/tailwind/addingToAReactProject.md))
     - [Tech Stack](notes/web_dev/techStack.html) ([md file](notes/web_dev/techStack.md))
+    - [Tree Command](notes/web_dev/treeCommand.html) ([md file](notes/web_dev/treeCommand.md))
     - Type Script
         - [Arrays And Loops](notes/web_dev/typeScript/arraysAndLoops.html) ([md file](notes/web_dev/typeScript/arraysAndLoops.md))
         - [Async](notes/web_dev/typeScript/async.html) ([md file](notes/web_dev/typeScript/async.md))

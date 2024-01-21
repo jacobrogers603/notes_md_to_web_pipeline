@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tree command file struct print</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+        <nav id="TOC"><ul>
+<li><a href="#jrrtree">jrrtree</a><ul>
+<li><a href="#usage">usage</a></li>
+<li><a href="#set-up-on-windows">set up on windows</a></li>
+<li><a href="#src-code">src code</a></li>
+</ul></li>
+</ul></nav>
+     <h1 id="jrrtree">jrrtree</h1>
+<p>I made my own tree. Will print the file structure of a directory.</p>
+<p>I edited my powershell profile and liked it to VSC to accept the alias of <code>jrrtree</code> to run my CLI tool.</p>
+<h2 id="usage">usage</h2>
+<p>usage: jrrtree [-h] [-p <DIRECTORY_PATH>] [-e <EXCLUDED_LIST>]</p>
+<p>Print the file structure of a project.</p>
+<p>options: -h, –help show this help message and exit -p <DIRECTORY_PATH>, –path <DIRECTORY_PATH> Path you wish to print the directory structure of. If left blank, it will use the current directory. -e <EXCLUDED_LIST>, –exclude <EXCLUDED_LIST> Comma-separated patterns of files/directories to exclude. You can use wildcard regex format, for example: *.html will exclude all html files. Do not put spaces after the commas.</p>
+<h2 id="set-up-on-windows">set up on windows</h2>
+<ol type="1">
+<li>define the following two files seen below.</li>
+<li>in setting settings.json in vsc:</li>
+</ol>
+<pre><code>&quot;terminal.integrated.profiles.windows&quot;: {
+        &quot;PowerShell&quot;: {
+            &quot;source&quot;: &quot;PowerShell&quot;,
+            &quot;icon&quot;: &quot;terminal-powershell&quot;,
+            &quot;path&quot;: &quot;C:\\Users\\roger\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1&quot; // replace with correct path
+        }</code></pre>
+<p><strong>Please note:</strong><em>I for some reason had to rename my WindowsPowerShell dir to Powershell for this to work despite using the path above.</em></p>
+<h2 id="src-code">src code</h2>
+<p><strong>tree.py</strong></p>
+<pre><code>import argparse
+import os
+import ctypes
+import fnmatch
+
+def is_hidden(filepath):
+    if os.name == &#39;nt&#39;:
+        try:
+            attrs = ctypes.windll.kernel32.GetFileAttributesW(filepath)
+            assert attrs != -1
+            result = bool(attrs &amp; 2)
+        except (AttributeError, AssertionError):
+            result = False
+        return result
+    else:
+        return os.path.basename(filepath).startswith(&#39;.&#39;)
+
+def print_directory(path, exclude_patterns, prefix=&#39;&#39;):
+    for item in os.listdir(path):
+        full_path = os.path.join(path, item)
+        if is_hidden(full_path) or any(fnmatch.fnmatch(item, pattern) for pattern in exclude_patterns):
+            continue
+        print(prefix + &quot;|-- &quot; + item)
+        if os.path.isdir(full_path):
+            print_directory(full_path, exclude_patterns, prefix + &quot;|   &quot;)
+
+def main():
+    parser = argparse.ArgumentParser(prog=&quot;jrrtree&quot;, description=&quot;Print the file structure of a project.&quot;)
+    parser.add_argument(&quot;-p&quot;, &quot;--path&quot;, type=str, metavar=&quot;&lt;DIRECTORY_PATH&gt;&quot;, help=&quot;Path you wish to print the directory structure of. If left blank, it will use the current directory.&quot;, default=&quot;.&quot;)
+    parser.add_argument(&quot;-e&quot;, &quot;--exclude&quot;, type=str, help=&quot;Comma-separated list of files/directories to exclude. Supports wildcards like *.ts&quot;, default=&quot;&quot;)
+    args = parser.parse_args()
+
+    exclude_patterns = set(args.exclude.split(&#39; &#39;)) if args.exclude else set()
+    
+    if not exclude_patterns:
+        print(&#39;Excluded: Nothing\n&#39;)
+    else:
+        print(&quot;Excluded: &quot;, exclude_patterns, &#39;\n&#39;)
+
+    if os.path.exists(args.path) and os.path.isdir(args.path):
+        print(os.path.basename(os.path.abspath(args.path)))
+        print_directory(args.path, exclude_patterns)
+    else:
+        print(&quot;Invalid path: &quot;, args.path)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()</code></pre>
+<p><strong>Microsoft.PowerShell_profile.ps1</strong></p>
+<pre><code>
+function Run-JrrTree {
+    param(
+        [string[]]$args
+    )
+
+    python &quot;C:\Users\roger\Documents\PS scripts\tree.py&quot; @args
+}
+
+Set-Alias -Name jrrtree -Value Run-JrrTree
+</code></pre>
+  </body>
+</html>
