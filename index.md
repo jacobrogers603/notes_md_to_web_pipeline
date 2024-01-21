@@ -6,6 +6,8 @@ title: "Notes Table of Contents"
     - [2 Web Dev Plans](notes/general_life_plans/2_webDevPlans.html) ([md file](notes/general_life_plans/2_webDevPlans.md))
 - Ideas
     - [Maslow App](notes/ideas/maslowApp.html) ([md file](notes/ideas/maslowApp.md))
+- Tennis
+    - [Match Report And Goals](notes/tennis/matchReportAndGoals.html) ([md file](notes/tennis/matchReportAndGoals.md))
 - Web Dev
     - [DOM Overview](notes/web_dev/DOM_overview.html) ([md file](notes/web_dev/DOM_overview.md))
     - Next JS
