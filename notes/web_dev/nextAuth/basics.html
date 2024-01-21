@@ -21,16 +21,23 @@
     </nav>
     <h1 id="next-auth-basics">Next Auth Basics</h1>
     <ol type="1">
-      <li>npm install next-auth</li>
+      <li><code>npm install next-auth</code></li>
       <li>
         make the path: <code>api/auth/[...nextauth]</code> and put
-        <code>route.ts</code> and <code>options.ts</code>
+        <code>route.ts</code>.
+      </li>
+      <li>
+        <p>here put:</p>
+        <p>import NextAuth from “next-auth”;</p>
+        <p>const handler = NextAuth({ // your code });</p>
+        <p>export { handler as GET, handler as POST };</p>
       </li>
     </ol>
     <h1 id="bcrypt">bcrypt</h1>
     <p>It is a good idea to use bcrypt as well with next auth</p>
     <ol type="1">
-      <li>npm install bcrypt</li>
+      <li><code>npm install bcrypt</code></li>
+      <li><code>npm install -D @types/bcrypt</code></li>
     </ol>
   </body>
 </html>
