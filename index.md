@@ -4,6 +4,8 @@ title: "Notes Table of Contents"
 - General Life Plans
     - [1 Overall Goals](notes/general_life_plans/1_overallGoals.html) ([md file](notes/general_life_plans/1_overallGoals.md))
     - [2 Web Dev Plans](notes/general_life_plans/2_webDevPlans.html) ([md file](notes/general_life_plans/2_webDevPlans.md))
+- Handyman
+    - [How To Start](notes/handyman/howToStart.html) ([md file](notes/handyman/howToStart.md))
 - Ideas
     - [Maslow App](notes/ideas/maslowApp.html) ([md file](notes/ideas/maslowApp.md))
 - Tennis
@@ -66,6 +68,7 @@ title: "Notes Table of Contents"
         - [Create A React App](notes/web_dev/react/create_a_react_app.html) ([md file](notes/web_dev/react/create_a_react_app.md))
         - [Dev Server](notes/web_dev/react/dev_server.html) ([md file](notes/web_dev/react/dev_server.md))
         - [Events](notes/web_dev/react/events.html) ([md file](notes/web_dev/react/events.md))
+        - [Hooks](notes/web_dev/react/hooks.html) ([md file](notes/web_dev/react/hooks.md))
         - [Jsx](notes/web_dev/react/jsx.html) ([md file](notes/web_dev/react/jsx.md))
         - [Map](notes/web_dev/react/map.html) ([md file](notes/web_dev/react/map.md))
         - [Props](notes/web_dev/react/props.html) ([md file](notes/web_dev/react/props.md))
