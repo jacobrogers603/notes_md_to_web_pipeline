@@ -1,0 +1,201 @@
+Excluded:  {'.venv', 'node_modules', '.vscode', '.github'} 
+
+notes_md_to_web_pipeline
+|-- .gitignore
+|-- assets
+|   |-- maslow.png
+|-- Dockerfile
+|-- index.html
+|-- index.md
+|-- notes
+|   |-- general_life_plans
+|   |   |-- 1_overallGoals.html
+|   |   |-- 1_overallGoals.md
+|   |   |-- 2_webDevPlans.html
+|   |   |-- 2_webDevPlans.md
+|   |-- ideas
+|   |   |-- maslowApp.html
+|   |   |-- maslowApp.md
+|   |-- tennis
+|   |   |-- matchReportAndGoals.html
+|   |   |-- matchReportAndGoals.md
+|   |-- web_dev
+|   |   |-- css_html
+|   |   |   |-- css_alignment.html
+|   |   |   |-- css_alignment.md
+|   |   |   |-- css_border.html
+|   |   |   |-- css_border.md
+|   |   |   |-- css_boxModel.html
+|   |   |   |-- css_boxModel.md
+|   |   |   |-- css_box_shadow.html
+|   |   |   |-- css_box_shadow.md
+|   |   |   |-- css_cursor.html
+|   |   |   |-- css_cursor.md
+|   |   |   |-- css_dialog.html
+|   |   |   |-- css_dialog.md
+|   |   |   |-- css_displayProperty.html
+|   |   |   |-- css_displayProperty.md
+|   |   |   |-- css_flexBox.html
+|   |   |   |-- css_flexBox.md
+|   |   |   |-- css_grid.html
+|   |   |   |-- css_grid.md
+|   |   |   |-- css_height_width.html
+|   |   |   |-- css_height_width.md
+|   |   |   |-- css_images.html
+|   |   |   |-- css_images.md
+|   |   |   |-- css_position.html
+|   |   |   |-- css_position.md
+|   |   |   |-- css_selectors.html
+|   |   |   |-- css_selectors.md
+|   |   |   |-- css_shadows.html
+|   |   |   |-- css_shadows.md
+|   |   |   |-- css_specificity.html
+|   |   |   |-- css_specificity.md
+|   |   |   |-- css_Text.html
+|   |   |   |-- css_Text.md
+|   |   |   |-- css_transitions.html
+|   |   |   |-- css_transitions.md
+|   |   |   |-- grid.html
+|   |   |   |-- grid.md
+|   |   |   |-- html-css-reference.pdf
+|   |   |   |-- html_div.html
+|   |   |   |-- html_div.md
+|   |   |   |-- html_divElement.html
+|   |   |   |-- html_divElement.md
+|   |   |   |-- html_ElementAttributes.html
+|   |   |   |-- html_ElementAttributes.md
+|   |   |   |-- html_entities.html
+|   |   |   |-- html_entities.md
+|   |   |   |-- html_flexBoxes.html
+|   |   |   |-- html_flexBoxes.md
+|   |   |   |-- html_images.html
+|   |   |   |-- html_images.md
+|   |   |   |-- html_inputElement.html
+|   |   |   |-- html_inputElement.md
+|   |   |   |-- html_linkingCSS.html
+|   |   |   |-- html_linkingCSS.md
+|   |   |   |-- html_mostImportatTags.html
+|   |   |   |-- html_mostImportatTags.md
+|   |   |   |-- html_structureConvention.html
+|   |   |   |-- html_structureConvention.md
+|   |   |   |-- html_textElements.html
+|   |   |   |-- html_textElements.md
+|   |   |   |-- practicing
+|   |   |   |   |-- cats.css
+|   |   |   |   |-- cats.html
+|   |   |   |   |-- navFlexbar.css
+|   |   |   |   |-- navFlexbar.html
+|   |   |   |   |-- position.css
+|   |   |   |   |-- position.html
+|   |   |   |   |-- sample.html
+|   |   |   |-- resources
+|   |   |   |   |-- boxModel.png
+|   |   |   |   |-- cat.jpg
+|   |   |   |   |-- cat2.jpg
+|   |   |   |   |-- dog2.jpg
+|   |   |   |   |-- flexBoxAxes.png
+|   |   |   |   |-- flexProportions.png
+|   |   |   |   |-- gridAlignment.png
+|   |   |   |   |-- imagePosition.png
+|   |   |   |   |-- moreColumnsMakesRowsGrids.png
+|   |   |   |   |-- pageVsbrowserWindow.png
+|   |   |   |   |-- posFixed.png
+|   |   |   |   |-- positions.mp4
+|   |   |   |   |-- textAlignment.png
+|   |   |   |   |-- textTopAligned.png
+|   |   |   |   |-- Thumbs.db
+|   |   |   |-- textArea.html
+|   |   |   |-- textArea.md
+|   |   |-- DOM_overview.html
+|   |   |-- DOM_overview.md
+|   |   |-- frameworks.html
+|   |   |-- frameworks.md
+|   |   |-- Next JS
+|   |   |   |-- Initalizing_in_a_project.html
+|   |   |   |-- Initalizing_in_a_project.md
+|   |   |   |-- overview.html
+|   |   |   |-- overview.md
+|   |   |   |-- routing.html
+|   |   |   |-- routing.md
+|   |   |-- nextAuth
+|   |   |   |-- basics.html
+|   |   |   |-- basics.md
+|   |   |-- prisma
+|   |   |   |-- basics.html
+|   |   |   |-- prisma_overview.html
+|   |   |-- prisma using mongoDB
+|   |   |   |-- basics.html
+|   |   |   |-- basics.md
+|   |   |   |-- models.html
+|   |   |   |-- models.md
+|   |   |   |-- prisma_overview.html
+|   |   |   |-- prisma_overview.md
+|   |   |-- projects
+|   |   |   |-- markMyWords
+|   |   |   |   |-- designDoc.html
+|   |   |   |   |-- designDoc.md
+|   |   |-- react
+|   |   |   |-- building_for_production.html
+|   |   |   |-- building_for_production.md
+|   |   |   |-- components.html
+|   |   |   |-- components.md
+|   |   |   |-- create_a_react_app.html
+|   |   |   |-- create_a_react_app.md
+|   |   |   |-- dev_server.html
+|   |   |   |-- dev_server.md
+|   |   |   |-- events.html
+|   |   |   |-- events.md
+|   |   |   |-- JSON_server.html
+|   |   |   |-- JSON_server.md
+|   |   |   |-- jsx.html
+|   |   |   |-- jsx.md
+|   |   |   |-- map.html
+|   |   |   |-- map.md
+|   |   |   |-- props.html
+|   |   |   |-- props.md
+|   |   |   |-- react_overview.html
+|   |   |   |-- react_overview.md
+|   |   |   |-- routing.html
+|   |   |   |-- routing.md
+|   |   |   |-- states.html
+|   |   |   |-- states.md
+|   |   |   |-- ternary.html
+|   |   |   |-- ternary.md
+|   |   |-- REST_API.html
+|   |   |-- REST_API.md
+|   |   |-- tailwind
+|   |   |   |-- addingToAReactProject.html
+|   |   |   |-- addingToAReactProject.md
+|   |   |-- techStack.html
+|   |   |-- techStack.md
+|   |   |-- treeCommand.md
+|   |   |-- typeScript
+|   |   |   |-- arraysAndLoops.html
+|   |   |   |-- arraysAndLoops.md
+|   |   |   |-- async.html
+|   |   |   |-- async.md
+|   |   |   |-- conversions.html
+|   |   |   |-- conversions.md
+|   |   |   |-- functions.html
+|   |   |   |-- functions.md
+|   |   |   |-- spreadOperator.html
+|   |   |   |-- spreadOperator.md
+|   |   |   |-- template_literals.html
+|   |   |   |-- template_literals.md
+|   |   |   |-- variables.html
+|   |   |   |-- variables.md
+|   |   |-- virtual_enviornment
+|   |   |   |-- venv.html
+|   |   |   |-- venv.md
+|-- out.txt
+|-- package-lock.json
+|-- package.json
+|-- readme.txt
+|-- requirements.txt
+|-- style.css
+|-- template.html
+|-- toc.js
+|-- toc.ts
+|-- tsconfig.json
+|-- vscode
+|   |-- settings.json

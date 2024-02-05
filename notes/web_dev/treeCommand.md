@@ -24,7 +24,7 @@ options:
 
 ## set up on windows
 
-1. define the following two files seen below.
+1. define the following two files seen below in src code.
 2. in setting settings.json in vsc:
 ```
 "terminal.integrated.profiles.windows": {
