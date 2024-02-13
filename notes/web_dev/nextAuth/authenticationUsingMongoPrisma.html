@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mongo and prisma and next-auth</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a
+      href="https://jacobrogers603.github.io/notes_md_to_web_pipeline/"
+      class="back-to-index"
+    >
+      Back to Index
+    </a>
+    <nav id="TOC">
+      <ul>
+        <li>
+          <a href="#mongo-prisma-next-auth-authentication"
+            >mongo, prisma, next-auth authentication</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <h1 id="mongo-prisma-next-auth-authentication">
+      mongo, prisma, next-auth authentication
+    </h1>
+    <ol type="1">
+      <li><code>npm i -D prisma</code></li>
+      <li><code>npx prisma init</code></li>
+      <li>set datasource db provider to mongodb</li>
+      <li><code>npm i @prisma/client</code></li>
+      <li>create a file: <code>lib/prisadb.ts</code></li>
+    </ol>
+    <pre><code>import { PrismaClient } from &#39;@prisma/client&#39;;
+
+const client = global.prismadb || new PrismaClient();
+
+if (process.env.NODE_ENV === &#39;development&#39;) { // or maybe!!!! &#39;production&#39; ...?
+  global.prismadb = client;
+}
+
+export default client;</code></pre>
+    <ol start="6" type="1">
+      <li>create <code>global.d.ts</code>:</li>
+    </ol>
+    <pre><code>import { PrismaClient } from &quot;@prisma/client&quot;;
+
+declare global {
+  namespace globalThis {
+    var prismadb: PrismaClient;
+  }
+}</code></pre>
+    <ol start="7" type="1">
+      <li>
+        <p>
+          set up mongodb in atlas, make a cluster, save your username and pass
+          somewhere, allow all IP addresses, click connect w/ vsc and use that
+          URL, but append /Cluster0 to the end and input your username and
+          password into the url
+        </p>
+      </li>
+      <li>
+        <p>
+          in the .env file, have your <code>DATABASE_URL</code> set to the
+          cluster url in mongodb atlas. Then set the schema field to that var.
+        </p>
+      </li>
+      <li><p>write the models in the schema file.</p></li>
+    </ol>
+    <pre><code>model User {
+    id String @id @default(auto()) @map(&quot;_id&quot;) @db.ObjectId
+    name String
+    email String @unique
+    hashedPassword String
+}</code></pre>
+    <ol start="10" type="1">
+      <li>
+        <code>npm i next-auth</code>, <code>npm i bcrypt</code>, and make the
+        <code>app/api/auth/[...nextauth]/route.ts</code> file:
+      </li>
+    </ol>
+    <pre><code>import authOptions from &#39;../../../../auth&#39;;
+import NextAuth from &#39;next-auth/next&#39;;
+
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };</code></pre>
+    <p>
+      <em
+        >Note: the authOptions should be here, but due to an error in next-auth
+        for next js 14, they need to be in a separate file called
+        <code>auth.ts</code> in the root dir. Move them to here in the future if
+        this gets fixed and don’t use the auth.ts file:</em
+      >
+    </p>
+    <pre><code>import prismadb from &quot;@/lib/prismadb&quot;;
+import Credentials from &quot;next-auth/providers/credentials&quot;;
+import { PrismaAdapter } from &quot;@next-auth/prisma-adapter&quot;;
+import { compare } from &quot;bcrypt&quot;;
+import { AuthOptions } from &quot;next-auth&quot;;
+
+const authOptions: AuthOptions = {
+  providers: [
+    Credentials({
+      id: &quot;credentials&quot;,
+      name: &quot;Credentials&quot;,
+      credentials: {
+        email: {
+          label: &quot;Email&quot;, 
+          type: &quot;email&quot;,
+          placeholder: &quot;Email&quot;,
+        },
+        password: {
+          label: &quot;Password&quot;,
+          type: &quot;password&quot;,
+          placeholder: &quot;Password&quot;,
+        },
+      },
+      async authorize(credentials) {
+        // If the email or password is empty, it throws an error. 
+        if (!credentials?.email || !credentials?.password) {
+          throw new Error(&quot;Email and password are required&quot;);
+        }
+
+        const user = await prismadb.user.findUnique({
+          where: {
+            email: credentials.email,
+          },
+        });
+
+        if (!user || !user.hashedPassword) {
+          throw new Error(&quot;Email does not exist&quot;);
+        }
+
+        const isCorrectPassword = await compare(
+          credentials.password, // this is coming from the form that the user filled in
+          user.hashedPassword as string // this is coming from the database
+        );
+        if (!isCorrectPassword) {
+          throw new Error(&quot;Invalid password&quot;);
+        }
+
+        return user;
+      },
+    }),
+  ],
+  pages: {
+    signIn: &quot;/auth&quot;,
+  },
+  adapter: PrismaAdapter(prismadb),
+  session: {
+    strategy: &quot;jwt&quot;,
+  },
+  jwt: {
+    secret: process.env.NEXTAUTH_JWT_SECRET,
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+};
+
+export default authOptions;</code></pre>
+    <ol start="11" type="1">
+      <li>
+        define a route for registering <code>app/api/register/route.ts</code>:
+      </li>
+    </ol>
+    <pre><code>import bcrypt from &#39;bcrypt&#39;;
+import {NextResponse } from &#39;next/server&#39;;
+import prismadb from &#39;@/lib/prismadb&#39;;
+
+export const POST = async (req: Request) =&gt; {
+
+    try {
+        // Define three vars extracted from req.body
+        const {email, name, password} = await req.json();
+
+        // Check to see if there is already an email registered for the email provided by the user.
+        const existingUser = await prismadb.user.findUnique({
+            where: {
+                email: email
+            }
+        });
+
+        if(existingUser){
+            return NextResponse.json({error:&#39;Email already registered :(&#39;})
+        }
+
+        // Hash the user&#39;s password.
+        const hashedPassword = await bcrypt.hash(password, 12);
+
+        // Save the hashed password into a new user model.
+        const user = await prismadb.user.create({
+            data: {
+                email,
+                name,
+                hashedPassword,
+                image: &#39;&#39;,
+                emailVerified: new Date()
+            }
+        });
+
+        return NextResponse.json(user);
+
+    } catch (error) {
+        console.log(error);
+        return NextResponse.json(error);
+    }
+}</code></pre>
+    <ol start="12" type="1">
+      <li>
+        in <code>app/auth/page.tsx</code> define functions that will register or
+        sign in the user:
+      </li>
+    </ol>
+    <pre><code>  const register = async (email: string, password: string) =&gt; {
+    try {
+      await axios.post(&quot;/api/register&quot;, {
+        username,
+        email,
+        password,
+      });
+      
+      signin();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+    const signin = async (email: string, password: string) =&gt; {
+    try {
+      const loginResult = await signIn(&quot;credentials&quot;, {
+        email: email,
+        password: password,
+        redirect: false,
+      });
+        
+      if (loginResult?.ok) {
+        router.push(&quot;/&quot;);
+      } else {
+        setErrMssg(&quot;Login failed&quot;);
+      }
+    } catch (error) {
+      console.error(&quot;Error during sign-in:&quot;, error);
+      setErrMssg(&quot;An error occurred during sign-in&quot;);
+    }
+  };</code></pre>
+  </body>
+</html>
