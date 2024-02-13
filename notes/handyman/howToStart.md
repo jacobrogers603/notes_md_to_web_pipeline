@@ -14,6 +14,12 @@ He suggests goDaddy, have a .com domain, not .anything else; check your corporat
 in FL is $160; sunbiz.org
 (https://dos.fl.gov/sunbiz/start-business/efile/fl-llc/)[link to fl]
 
+
+possible name:
+    Precision Handyman Solutions
+    tool titans
+    
+
 2. acquire your domain and make a website; get an email w/ custom domain name; create social media accounts under said name
 
 he used goDaddy for easy website creation
@@ -81,8 +87,10 @@ pricing structure
 12. advertizing
 
 thumbtack
-craigslist
+craig's list
 angie's list
 nextdoor
 google how to find a handyman
 business to business, email them, property managers; have a folder prepared for them
+
+13. recording equipment for ads of your work
