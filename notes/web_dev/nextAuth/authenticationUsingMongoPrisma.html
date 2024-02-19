@@ -19,6 +19,9 @@
           <a href="#mongo-prisma-next-auth-authentication"
             >mongo, prisma, next-auth authentication</a
           >
+          <ul>
+            <li><a href="#route-protection">route protection</a></li>
+          </ul>
         </li>
       </ul>
     </nav>
@@ -244,5 +247,114 @@ export const POST = async (req: Request) =&gt; {
       setErrMssg(&quot;An error occurred during sign-in&quot;);
     }
   };</code></pre>
+    <h2 id="route-protection">route protection</h2>
+    <ol type="1">
+      <li>
+        make a file <code>lib/serverAuth.ts</code> to check if the user is
+        authenticated on the server side:
+      </li>
+    </ol>
+    <pre><code>import { NextApiRequest } from &quot;next&quot;;
+import { getSession } from &quot;next-auth/react&quot;;
+import prismadb from &#39;@/lib/prismadb&#39;;
+
+// This file is used to check if the user is authenticated on the server side.
+const serverAuth = async (req: NextApiRequest) =&gt; {
+
+    const session = await getSession({req});
+
+    if(!session?.user?.email){
+        throw new Error(&#39;Not signed in&#39;);
+    }
+
+    const currentUser = await prismadb.user.findUnique({
+        where: {
+            email: session.user.email
+        }
+    })
+
+    if(!currentUser){
+        throw new Error(&#39;Not signed in&#39;);
+    }
+
+    return { currentUser };
+}
+
+export default serverAuth;</code></pre>
+    <ol start="2" type="1">
+      <li>make sure your <code>.env</code> file has:</li>
+    </ol>
+    <p>NEXTAUTH_URL=http://localhost:3000</p>
+    <ol start="3" type="1">
+      <li>
+        In your schema add a Session model and sessions Session[] to the User
+        model:
+      </li>
+    </ol>
+    <pre><code>model User {
+  id String @id @default(auto()) @map(&quot;_id&quot;) @db.ObjectId 
+  email String @unique
+  hashedPassword String
+  sessions Session[]
+}
+
+model Session {
+  id String @id @default(auto()) @map(&quot;_id&quot;) @db.ObjectId
+  sessionToken String @unique
+  userId String @db.ObjectId
+  expires DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}</code></pre>
+    <ol start="4" type="1">
+      <li>layout.tsx should wrap body in provider tags</li>
+    </ol>
+    <p>import Provider from “./provider”;</p>
+    <pre><code>return (
+    &lt;html lang=&quot;en&quot;&gt;
+        &lt;Provider&gt;
+          &lt;body className={inter.className}&gt;{children}&lt;/body&gt;
+        &lt;/Provider&gt;
+    &lt;/html&gt;
+  );</code></pre>
+    <ol start="5" type="1">
+      <li>Add a file <code>app/provider.tsx</code>:</li>
+    </ol>
+    <pre><code>&quot;use client&quot;;
+// The SessionProvider component is a wrapper for the next-auth session context. It&#39;s used to provide the session context to the app. The session context is used to get the user&#39;s session. 
+import { SessionProvider } from &quot;next-auth/react&quot;;
+
+type Props = {
+    children?:React.ReactNode;
+};
+
+const Provider = ({children}: Props) =&gt; {
+    return &lt;SessionProvider&gt;{children}&lt;/SessionProvider&gt;
+};
+
+export default Provider;</code></pre>
+    <ol start="6" type="1">
+      <li>On your pages you want to protect add:</li>
+    </ol>
+    <pre><code>const { data: session, status } = useSession({ 
+    required: true,
+    onUnauthenticated() {
+      console.log(&quot;redirected&quot;);
+      redirect(&quot;/api/auth/signin&quot;);
+    },
+  });
+
+  if (status === &quot;loading&quot;) {
+    return (
+    &lt;main className=&quot;w-full h-screen grid place-items-center&quot;&gt;
+      &lt;div className=&quot;flex justify-center items-center w-auto h-10 p-4 border-solid rounded-md border-black border-2 text-black font-semibold bg-amber-400&quot;&gt;
+        Loading...
+      &lt;/div&gt;
+    &lt;/main&gt;
+    );
+  }
+
+  ...
+  // normal return</code></pre>
   </body>
 </html>
