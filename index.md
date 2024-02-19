@@ -52,6 +52,7 @@ title: "Notes Table of Contents"
         - [Text Area](notes/web_dev/css_html/textArea.html) ([md file](notes/web_dev/css_html/textArea.md))
     - [Frameworks](notes/web_dev/frameworks.html) ([md file](notes/web_dev/frameworks.md))
     - Next Auth
+        - [Authentication Using Mongo Prisma](notes/web_dev/nextAuth/authenticationUsingMongoPrisma.html) ([md file](notes/web_dev/nextAuth/authenticationUsingMongoPrisma.md))
         - [Basics](notes/web_dev/nextAuth/basics.html) ([md file](notes/web_dev/nextAuth/basics.md))
     - Prisma
     - Prisma Using Mongo DB
