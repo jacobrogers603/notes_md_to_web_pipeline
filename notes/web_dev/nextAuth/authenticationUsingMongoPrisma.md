@@ -211,3 +211,118 @@ export const POST = async (req: Request) => {
     }
   };
 ```
+
+## route protection
+
+1. make a file `lib/serverAuth.ts` to check if the user is authenticated on the server side:
+
+```
+import { NextApiRequest } from "next";
+import { getSession } from "next-auth/react";
+import prismadb from '@/lib/prismadb';
+
+// This file is used to check if the user is authenticated on the server side.
+const serverAuth = async (req: NextApiRequest) => {
+
+    const session = await getSession({req});
+
+    if(!session?.user?.email){
+        throw new Error('Not signed in');
+    }
+
+    const currentUser = await prismadb.user.findUnique({
+        where: {
+            email: session.user.email
+        }
+    })
+
+    if(!currentUser){
+        throw new Error('Not signed in');
+    }
+
+    return { currentUser };
+}
+
+export default serverAuth;
+```
+
+2. make sure your `.env` file has:
+
+NEXTAUTH_URL=http://localhost:3000
+
+3. In your schema add a Session model and sessions Session[] to the User model:
+
+```
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId 
+  email String @unique
+  hashedPassword String
+  sessions Session[]
+}
+
+model Session {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken String @unique
+  userId String @db.ObjectId
+  expires DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+```
+
+4. layout.tsx should wrap body in provider tags
+
+import Provider from "./provider";
+
+```
+return (
+    <html lang="en">
+        <Provider>
+          <body className={inter.className}>{children}</body>
+        </Provider>
+    </html>
+  );
+```
+
+5. Add a file `app/provider.tsx`:
+
+```
+"use client";
+// The SessionProvider component is a wrapper for the next-auth session context. It's used to provide the session context to the app. The session context is used to get the user's session. 
+import { SessionProvider } from "next-auth/react";
+
+type Props = {
+    children?:React.ReactNode;
+};
+
+const Provider = ({children}: Props) => {
+    return <SessionProvider>{children}</SessionProvider>
+};
+
+export default Provider;
+```
+
+6. On your pages you want to protect add:
+
+```
+const { data: session, status } = useSession({ 
+    required: true,
+    onUnauthenticated() {
+      console.log("redirected");
+      redirect("/api/auth/signin");
+    },
+  });
+
+  if (status === "loading") {
+    return (
+    <main className="w-full h-screen grid place-items-center">
+      <div className="flex justify-center items-center w-auto h-10 p-4 border-solid rounded-md border-black border-2 text-black font-semibold bg-amber-400">
+        Loading...
+      </div>
+    </main>
+    );
+  }
+
+  ...
+  // normal return
+```
